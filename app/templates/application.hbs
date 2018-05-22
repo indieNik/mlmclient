@@ -1,5 +1,118 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+    }
 
+    .header {
+        position: fixed;
+        top: 0%;
+        text-align: center;
+        background-color: dodgerblue;
+        color: white;
+        width: 100%;
+        padding: 50px;
+    }
+    .footer {
+        position: fixed;
+        bottom: 0%;
+        text-align: center;
+        background-color: dodgerblue;
+        color: white;
+        width: 100%;
+        padding: 10px;
+        font-size: 0.75rem;
+    }
+    .login-container {
+        position: absolute;
+        border: 1px solid dodgerblue;
+        color: dodgerblue;
+        width: 90%;
+        height: 50%;
+        margin-top: calc(100px + 18px + 10%);
+        margin-left: 5%;
+    }
+    .login-header {
+        background-color: dodgerblue;
+        color: white;
+        text-align: center;
+        padding: 30px;
+    }
+    .login-body {
+        background-color: white;
+        height: 500px;
+        min-height: 300px;
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 60px;
+    }
+    .login-body p {
+        margin: 25px;
+        padding: 10px;
+    }
+    .login-body p input {
+        padding: 10px;
+        background-color: rgba(30, 143, 255, 0.05);
+        border: 0.2px solid dodgerblue;
+        text-align: center;
+        box-shadow: inset 0px 0px 5px 0px dodgerblue;
+        height: 50px;
+        width: 75%;
+        border-radius: 5px;
+    }
+    .login-body p input::placeholder {
+        color: rgba(30, 143, 255, 0.75);
+    }
+    .login-body p button {
+        padding: 10px;
+        background-color: dodgerblue;
+        text-align: center;
+        color: white;
+        border-radius: 5px;
+        height: 40px;
+        width: 30%;
+    }
+    @media only screen and (min-width: 500px) {
+        .login-container {
+            width: 50%;
+            margin-left: 25%;
+        }
+        .login-body p input {
+            height: 50px;
+            width: 75%;
+            font-size: 0.85rem;
+        }
+        .login-body p button {
+            width: 50%;
+        }
+    }
+</style>
+
+<div class="header">
+    MLM Client
+</div>
+
+<div class="login-container">
+    <div class="login-header">
+        Welcome! Login to continue 
+    </div>
+    <div class="login-body">
+        <p>
+            <label for="login-username" hidden>Username</label>
+            <input id="login-username" type="text" placeholder="Username">
+        </p>
+        <p>
+            <label for="login-password" hidden>Password</label>
+            <input id="login-password" type="password" placeholder="Password">
+        </p>
+        <p>
+            <button type="submit" value="Login">Login</button>
+        </p>
+    </div>
+</div>
+
+<div class="footer">
+    &copy; MLM Client - 2018
+</div>
 {{outlet}}
