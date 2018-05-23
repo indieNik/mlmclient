@@ -32,7 +32,7 @@ module.exports = function(/* environment, appConfig */) {
       },
       {
         src: "/images/mlm-150.png",
-        element: "150x150",
+        element: "square150x150logo",
         targets: ['ms']
       }
     ],
