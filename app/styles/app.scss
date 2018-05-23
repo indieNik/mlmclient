@@ -1,0 +1,33 @@
+// Import a Google Font
+
+// Set your brand colors
+$darkpurple: #22264b;
+$navbar-item-color: #fff;
+
+// Update Bulma's global variables
+$primary: $darkpurple;
+$secondary: #b56969;
+$highlight: #e6cf8b;
+$lighttext: #e8edf3;
+
+
+// Import the rest of Bulma
+@import "bulma";
+
+.footer-is-fixed-bottom {
+    background-color: $primary;
+    color: $lighttext;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0%;
+}
+
+.navbar-burger {
+    color: $lighttext;
+}
+
+.login-div {
+    margin-top: 15%
+}
