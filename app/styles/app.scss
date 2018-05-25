@@ -26,6 +26,24 @@ $lighttext: #e8edf3;
 
 .navbar-burger {
     color: $lighttext;
+    &.is-active {
+        color: $lighttext
+    }
+    &:hover {
+        color: $lighttext
+    }
+}
+
+.fa-google {
+    background-color: #D75040;
+    color: #fff;
+    border-radius: 20%;
+    padding: 3px;
+    transition: all .5s ease-in-out;
+    &:hover {
+        transform: rotate(360deg);
+        cursor: pointer;
+    }
 }
 
 .login-div {
