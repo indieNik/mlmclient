@@ -14,6 +14,9 @@ module.exports = function(environment) {
       storageBucket: "mlm-client.appspot.com",
       messagingSenderId: "800438870294"
     },
+    torii: {
+      sessionServiceName: 'session'
+    },  
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

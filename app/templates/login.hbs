@@ -40,7 +40,10 @@
         <footer class="card-footer">
             <p class="card-footer-item">
                 <span>
-                    Or Sign in with Google: {{fa-icon "google"}}
+                    Or Sign in with Google: 
+                    <span {{action "signIn" "google"}}>
+                        {{fa-icon "google"}}
+                    </span>
                 </span>
             </p>
         </footer>
