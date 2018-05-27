@@ -38,6 +38,21 @@ $lighttext: #e8edf3;
     }
 }
 
+.navbar-menu.is-active {
+    padding: 0px;
+    .navbar-item {
+        &:first-child {
+            border-top: 1px solid #000;
+            padding: 15px;
+        }
+        border-bottom: 1px solid #000;
+        background-color: $darkpurple;
+        a {
+            color: #fff;
+        }
+    }
+}
+
 .fa-google {
     background-color: #D75040;
     color: #fff;

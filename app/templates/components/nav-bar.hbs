@@ -1,7 +1,7 @@
 <nav class="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         {{#link-to "index" class="navbar-item"}}
-            <h1>MLM Client</h1>
+            <h1 {{action "closeNav"}}>MLM Client</h1>
         {{/link-to}}
 
         {{#if authenticatedUser}}
@@ -16,7 +16,11 @@
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-end">
                     <div class="navbar-item">
-                        Welcome {{authenticatedUser.displayName}}
+                        {{#link-to 'user' id="userName"}}
+                            <span {{action "closeNav"}}>
+                                {{authenticatedUser.displayName}}
+                            </span>
+                        {{/link-to}}
                     </div>
                     <div class="navbar-item" {{action "signOut"}}>
                         {{#link-to "login" class="button is-primary"}}

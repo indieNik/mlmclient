@@ -1,2 +1,53 @@
-
+<style>
+    .container {
+        margin-top: -20%;
+    }
+    .hero.is-success {
+        background: #F2F6FA;
+    }
+    .hero .nav, .hero.is-success .nav {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .box {
+        margin-top: 5rem;
+    }
+    .avatar {
+        margin-top: -50%;
+        padding-bottom: 20px;
+        border-width: 0px;
+    }
+    .avatar img {
+        padding: 5px;
+        background: #fff;
+        border-radius: 50%;
+        -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+        box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    }
+</style>
+<section class="hero is-info is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="column is-4 is-offset-4">
+                <div class="box">
+                    <figure class="avatar">
+                        <img src="{{authenticatedUser.photoURL}}" class="image">
+                    </figure>
+                    <h1 class="title has-text-primary has-text-centered">
+                        {{authenticatedUser.displayName}}
+                    </h1>
+                    <h2 class="subtitle has-text-primary has-text-centered">
+                        {{authenticatedUser.email}}
+                    </h2>
+                    <p>
+                        <span class="tag is-rounded is-primary">5</span> Recruits
+                    </p>
+                    <p>
+                        <span class="tag is-rounded is-primary">12</span> Products Sold
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {{outlet}}

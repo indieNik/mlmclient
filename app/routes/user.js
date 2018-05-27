@@ -9,17 +9,17 @@ export default Route.extend({
     },
 
     beforeModel: function() {
-        if(!this.get('session').get("currentUser")) {
-            console.log("Unauthenticated Request");
-            this.transitionTo("index"); // Unauthenticated Request
-        };
+        return this.get('session').fetch().catch(function() {
+        });
     },
 
     setupController() {
         this.controllerFor("application").set("indexRoute", false);
-        if(this.get('session').get("currentUser")) {
-            this.transitionTo("user");
+        if(this.get('session.currentUser')) {
             this.controllerFor("application").set("authenticatedUser", this.get('session.currentUser'));
+            this.controllerFor("user").set("authenticatedUser", this.get('session.currentUser'));
+        } else {
+                this.transitionTo("index"); // Unauthenticated Request
         }
     }
 });

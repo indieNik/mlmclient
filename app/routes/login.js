@@ -20,18 +20,13 @@ export default Route.extend({
 
         signIn: function(provider) {
             let _this = this;
-            let userExists = false;
             this.get('session').open('firebase', { provider: provider}).then(function(data) {
                 let userInFirebase = _this.store.query('user', {
                     orderBy: 'userEmail',
                     equalTo: data.currentUser.email
                 });
-                console.log("User in Firebase: ", userInFirebase);
                 userInFirebase.then(result => {
-                    if(result.get("length") > 0)
-                        console.log("Returning User");
-                    else {
-                        console.log("New User, Registering into Firebase")
+                    if(result.get("length") == 0) {
                         let newUser = _this.store.createRecord("user");
                         newUser.set("userName", data.currentUser.displayName);
                         newUser.set("userEmail", data.currentUser.email);
@@ -39,7 +34,7 @@ export default Route.extend({
                         newUser.set("isAdmin", false);
                         newUser.save();
                     }
-                }, reject => {})
+                })
                 _this.transitionTo("user");
             });
         },
