@@ -7,43 +7,46 @@ export default Route.extend({
 
     beforeModel: function() {
         return this.get('session').fetch().catch(function() {
-            console.log("Failed to fetch session");
         });
+    },
+
+    setupController() {
+        this.controllerFor("application").set("indexRoute", false);
+        if(this.get('session').get("currentUser"))
+            this.transitionTo("index");
     },
 
     actions: {
 
         signIn: function(provider) {
             let _this = this;
+            let userExists = false;
             this.get('session').open('firebase', { provider: provider}).then(function(data) {
-                _this.set("authenticatedUser", data.currentUser);
-                console.log("Session User:", data.currentUser);
+                let userInFirebase = _this.store.query('user', {
+                    orderBy: 'userEmail',
+                    equalTo: data.currentUser.email
+                });
+                console.log("User in Firebase: ", userInFirebase);
+                userInFirebase.then(result => {
+                    if(result.get("length") > 0)
+                        console.log("Returning User");
+                    else {
+                        console.log("New User, Registering into Firebase")
+                        let newUser = _this.store.createRecord("user");
+                        newUser.set("userName", data.currentUser.displayName);
+                        newUser.set("userEmail", data.currentUser.email);
+                        newUser.set("userImage", data.currentUser.photoURL);
+                        newUser.set("isAdmin", false);
+                        newUser.save();
+                    }
+                }, reject => {})
+                _this.transitionTo("user");
             });
         },
         
         signOut: function() {
             this.get('session').close();
-            console.log("Session Closed!")
             this.transitionTo("login");
-        },
-
-        displayNav() {
-            // Get all "navbar-burger" elements
-            var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            // Check if there are any navbar burgers
-            if ($navbarBurgers.length > 0) {
-    
-                // Add a click event on each of them
-                $navbarBurgers.forEach(function ($el) {
-                    // Get the target from the "data-target" attribute
-                    var target = $el.dataset.target;
-                    var $target = document.getElementById(target);
-    
-                    // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                    $el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
-                });
-            }
         }
     }
 });

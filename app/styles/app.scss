@@ -14,6 +14,10 @@ $lighttext: #e8edf3;
 // Import the rest of Bulma
 @import "bulma";
 
+.hero.is-fullheight{
+    min-height: calc(100vh - 4rem);
+}
+
 .footer-is-fixed-bottom {
     background-color: $primary;
     color: $lighttext;
@@ -48,4 +52,41 @@ $lighttext: #e8edf3;
 
 .login-div {
     margin-top: 15%
+}
+
+.spinner-container {
+    position: fixed;
+    background-color: $darkpurple;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    text-align: center;
+    .spinner-background {
+        position: fixed;
+        margin-top: 40vh;
+        margin-left: 41vw;
+        .spinner {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 100px;
+            height: 100px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+    }
+}
+
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -1,0 +1,40 @@
+{{#if isIndex}}
+    {{#if authenticatedUser}}
+        <section class="hero is-info is-fullheight">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <div class="column is-6 is-offset-3">
+                        <h1 class="title">
+                            Welcome {{authenticatedUser.displayName}}
+                        </h1>
+                        <button class="button is-primary">
+                            {{#link-to "user"}}
+                                See Users &rarr;
+                            {{/link-to}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {{else}}
+        <section class="hero is-info is-fullheight">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <div class="column is-6 is-offset-3">
+                        <h1 class="title">
+                            Coming Soon
+                        </h1>
+                        <h2 class="subtitle">
+                            This is a business website which is still a work in progress. If you're a member already, get started by logging in!
+                        </h2>
+                        <button class="button is-primary">
+                            {{#link-to "login"}}
+                                Login &rarr;
+                            {{/link-to}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {{/if}}
+{{/if}}
