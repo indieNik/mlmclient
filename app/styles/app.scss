@@ -80,8 +80,8 @@ $lighttext: #e8edf3;
     text-align: center;
     .spinner-background {
         position: fixed;
-        margin-top: 40vh;
-        margin-left: 41vw;
+        margin-top: calc(50vh - 50px);
+        margin-left: calc(50vw - 50px);
         .spinner {
             border: 16px solid #f3f3f3;
             border-radius: 50%;
