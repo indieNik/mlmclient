@@ -29,14 +29,13 @@ export default Component.extend({
                     var $target = document.getElementById(target);
     
                     // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                    $el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
+                    if($el) $el.classList.toggle('is-active');
+                    if ($target) $target.classList.toggle('is-active');
                 });
             }
         },
 
         closeNav() {
-            console.log("Inside Navbar's closeNav");
             // Get all "navbar-burger" elements
             var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             // Check if there are any navbar burgers
@@ -47,8 +46,8 @@ export default Component.extend({
                     var $target = document.getElementById(target);
     
                     // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                    $el.classList.remove('is-active');
-                    $target.classList.remove('is-active');
+                    if($el) $el.classList.remove('is-active');
+                    if($target) $target.classList.remove('is-active');
                 });
             }
         }
