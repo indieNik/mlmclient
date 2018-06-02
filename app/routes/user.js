@@ -4,9 +4,12 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
     session: service(),
 
-    model() {
-        return this.store.findAll("user");
-    },
+    // model() {
+    //     return this.store.query('user', {
+    //         orderBy: 'userEmail',
+    //         equalTo: this.get('session.currentUser.email')
+    //     })
+    // },
 
     beforeModel: function() {
         return this.get('session').fetch().catch(function() {
@@ -21,5 +24,14 @@ export default Route.extend({
         } else {
                 this.transitionTo("index"); // Unauthenticated Request
         }
+    },
+
+    actions: {
+
+        signOut: function() {
+            this.get('session').close();
+            this.get("router").transitionTo("login");
+        }
+        
     }
 });
