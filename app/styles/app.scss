@@ -86,6 +86,7 @@ $lighttext: #e8edf3;
             border: 16px solid #f3f3f3;
             border-radius: 50%;
             border-top: 16px solid #3498db;
+            border-bottom: 16px solid #3498db;
             width: 100px;
             height: 100px;
             -webkit-animation: spin 2s linear infinite; /* Safari */
@@ -104,4 +105,34 @@ $lighttext: #e8edf3;
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+// Sidebar
+.columns{
+    margin-right: 0%;
+    #user-sidebar {
+        background-color: #22264b;
+        color: #fff;
+        min-height: calc(100vh - 4rem);
+        overflow: scroll;
+        margin: 0%;
+        padding: 3rem;
+        a {
+            color: #fff;
+        }
+        a:hover {
+            background-color: $info;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        #user-sidebar {
+            display: none;
+            margin-top: -7%;
+        }
+        #user-sidebar {
+            &.is-active {
+                display: block;
+            }
+        }
+    }
 }
