@@ -4,12 +4,6 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
     session: service(),
 
-    // model() {
-    //     return this.store.query('user', {
-    //         orderBy: 'userEmail',
-    //         equalTo: this.get('session.currentUser.email')
-    //     })
-    // },
 
     beforeModel: function() {
         return this.get('session').fetch().catch(function() {
