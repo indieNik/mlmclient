@@ -10,10 +10,6 @@ $secondary: #b56969;
 $highlight: #e6cf8b;
 $lighttext: #e8edf3;
 
-
-// Import the rest of Bulma
-@import "bulma";
-
 .hero.is-fullheight{
     min-height: calc(100vh - 4rem);
 }
@@ -108,26 +104,27 @@ $lighttext: #e8edf3;
 }
 
 // Sidebar
-.columns{
+.sidebar-col{
     margin-right: 0%;
     #user-sidebar {
         background-color: #22264b;
         color: #fff;
-        min-height: calc(100vh - 4rem);
-        overflow: scroll;
+        height: calc(100vh - 6rem);
         margin: 0%;
         padding: 3rem;
         a {
             color: #fff;
         }
-        a:hover {
-            background-color: $info;
+        a:hover, a.is-active{
+            background-color: dodgerblue;
         }
     }
     @media screen and (max-width: 768px) {
         #user-sidebar {
             display: none;
             margin-top: -7%;
+            height: 100vh;
+            overflow: scroll;
         }
         #user-sidebar {
             &.is-active {
@@ -136,3 +133,43 @@ $lighttext: #e8edf3;
         }
     }
 }
+
+// User Profile Styles
+.panel-tabs {
+    background-color: #22264b;
+    padding: 1rem 2rem;
+    justify-content: space-evenly !important;
+    a {
+        color: #fff !important;
+        padding: 0.4em !important;
+        border-bottom: 0px !important;
+        border-radius: 5px;
+    }
+    a:focus, .is-active {
+        background-color: dodgerblue;
+        border-bottom-color: dodgerblue !important;
+    }
+    a:hover {
+        background-color: dodgerblue;
+        border-bottom-color: dodgerblue !important;
+    }
+}
+.hide-div {
+    display: none;
+}
+.info-tabs {
+    .columns {
+        box-sizing: border-box;
+        margin: 0px !important;
+        border-bottom: 1px solid dodgerblue;
+        :first-child {
+            border-left: 1px solid dodgerblue;
+        }
+        :last-child {
+            border-right: 1px solid dodgerblue;
+        }
+    }
+}
+
+// Import the rest of Bulma
+@import "bulma";

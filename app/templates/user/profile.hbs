@@ -1,0 +1,101 @@
+<style>
+    .panel-heading.profile {
+        background-color: #22264b;
+        color: #fff;
+        border: 1px solid #22264b;
+    }
+    .panel-tabs {
+        border: 1px solid dodgerblue !important;
+    }
+</style>
+<div class="profile">
+    <p class="panel-tabs profile">
+        <a href="#" {{action "toggleTab" "general-info"}} class="nav-pill is-active">General</a>
+        <a href="#" {{action "toggleTab" "user-id-info"}} class="nav-pill">Identity</a>
+        <a href="#" {{action "toggleTab" "relationship-info"}} class="nav-pill">Relationship</a>
+        <a href="#" {{action "toggleTab" "contact-info"}} class="nav-pill">Contact</a>
+        <a href="#" {{action "toggleTab" "address-info"}} class="nav-pill">Address</a>
+    </p>
+    <div id="general-info" class="info-tabs is-offset-3">
+        <div class="columns">
+            <div class="column has-text-weight-bold">First Name</div>
+            <div class="column">Nikhil</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">Last Name</div>
+            <div class="column">Patil</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">Email</div>
+            <div class="column">niki.thrill@gmail.com</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">Date of Birth</div>
+            <div class="column">15th April 1992</div>
+        </div>
+    </div>
+    <div id="user-id-info" class="info-tabs hide-div">
+        <div class="columns">
+            <div class="column has-text-weight-bold">TOKEN</div>
+            <div class="column">-LDJHJD283H3HF8FYFHB</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">PAN CARD ID</div>
+            <div class="column">DPSYY8729D</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">AADHAAR ID</div>
+            <div class="column">100301314387</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">VOTER ID</div>
+            <div class="column">AJAJD7862H</div>
+        </div>
+    </div>
+    <div id="relationship-info" class="info-tabs hide-div">
+        <div class="columns">
+            <div class="column has-text-weight-bold">Father's Name</div>
+            <div class="column">Jagadeesh Patil</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">Mother's Name</div>
+            <div class="column">Anupama</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">Married?</div>
+            <div class="column">Yes</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">Spouse Name</div>
+            <div class="column">Future Wifey</div>
+        </div>
+    </div>
+    <div id="contact-info" class="info-tabs hide-div">
+        <div class="columns">
+            <div class="column has-text-weight-bold">Mobile</div>
+            <div class="column">8749025456</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">Alternate Number</div>
+            <div class="column">9641148263</div>
+        </div>
+    </div>
+    <div id="address-info" class="info-tabs hide-div">
+        <div class="columns">
+            <div class="column has-text-weight-bold">Country</div>
+            <div class="column">India</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">State</div>
+            <div class="column">KA</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">City</div>
+            <div class="column">Belagavi</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold">Street</div>
+            <div class="column">Ramteerth Nagar</div>
+        </div>
+    </div>
+</div>

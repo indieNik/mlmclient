@@ -1,5 +1,5 @@
-<div class="columns container">
-    <div id="user-sidebar" class="column is-4">
+<div class="columns sidebar-col">
+    <div id="user-sidebar" class="column is-one-quarter">
         <div class="box">
             <figure class="avatar">
                 <img src="{{authenticatedUser.photoURL}}" class="image">
@@ -22,7 +22,7 @@
                     {{/link-to}}
                 </li>
                 <li>
-                    {{#link-to 'user.edit' user}}
+                    {{#link-to 'user.edit'}}
                         Edit Profile
                     {{/link-to}}
                 </li>
@@ -79,7 +79,7 @@
             </ul>
         </aside>
     </div>
-    <div class="column">
+    <div id="user-details" class="column">
         {{outlet}}
     </div>
 </div>
