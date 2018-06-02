@@ -10,7 +10,7 @@
             </p>
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="email" placeholder="Email">
+                    {{input class="input" value=email type="email" placeholder="Email"}}
                     <span class="icon is-small is-left">
                     {{fa-icon "envelope"}}
                     </span>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="field">
                 <p class="control has-icons-left">
-                    <input class="input" type="password" placeholder="Password">
+                    {{input class="input" value=password type="password" placeholder="Password"}}
                     <span class="icon is-small is-left">
                     {{fa-icon "lock"}}
                     </span>
@@ -26,9 +26,11 @@
                 </div>
                 <div class="field is-grouped">
                     <p class="control">
-                        <a class="button is-primary">
-                        Submit
-                        </a>
+                        <span {{action "signInWithPassword" "password" email password}}>
+                            <a class="button is-primary">
+                                Sign In
+                            </a>
+                        </span>
                     </p>
                     <p class="control">
                         {{#link-to "index" class="button is-light"}}
