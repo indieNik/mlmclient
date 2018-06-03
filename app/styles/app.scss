@@ -10,6 +10,15 @@ $secondary: #b56969;
 $highlight: #e6cf8b;
 $lighttext: #e8edf3;
 
+@media screen and (min-width: 768px) {
+    .navbar, .footer-is-fixed-bottom {
+        box-shadow: 0px 0px 3px 3px dodgerblue;
+    }
+    .sidebar-col #user-sidebar {
+        box-shadow: 0px 0px 20px 2px #9E9E9E;
+    }
+}
+
 .hero.is-fullheight{
     min-height: calc(100vh - 4rem);
 }
@@ -135,9 +144,15 @@ $lighttext: #e8edf3;
 }
 
 // User Profile Styles
+.panel-heading.profile {
+    background-color: #22264b;
+    color: #fff;
+    border: 1px solid #22264b;
+}
 .panel-tabs {
     background-color: #22264b;
     padding: 1rem 2rem;
+    border: 1px solid #22264b !important;
     justify-content: space-evenly !important;
     a {
         color: #fff !important;
