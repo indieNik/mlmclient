@@ -172,19 +172,24 @@ $lighttext: #e8edf3;
 .hide-div {
     display: none;
 }
+@media screen and (max-width: 768px) {
+    .info-tabs {
+        .columns {
+            :last-child {
+                margin: -20px 0px -5px 0px;
+            }
+        }
+    }
+}
 .info-tabs {
     .columns {
         box-sizing: border-box;
         margin: 0px !important;
         border-bottom: 1px solid dodgerblue;
-        :first-child {
-            border-left: 1px solid dodgerblue;
-        }
-        :last-child {
-            border-right: 1px solid dodgerblue;
-        }
     }
 }
-
+.detail-window {
+    margin: 5vh 1vw !important; 
+}
 // Import the rest of Bulma
 @import "bulma";
