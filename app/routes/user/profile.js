@@ -1,12 +1,14 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-    init() {
-        var target = document.getElementById("user-sidebar");
+    // afterModel() {
+    //     var target = document.getElementById("user-sidebar");
     
-        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-        if (target) target.classList.toggle('is-active');
-    },
+    //     // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+    //     if (target) target.classList.toggle('is-active');
+
+    //     console.log("Toggled!");
+    // },
 
     actions: {
         toggleTab(id) {

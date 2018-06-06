@@ -35,7 +35,7 @@ export default Route.extend({
                         newUser.save();
                     }
                 })
-                _this.transitionTo("user");
+                _this.transitionTo("index");
             });
         },
 
