@@ -2,10 +2,10 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
 
-    userName: DS.attr(),
+    userUID: DS.attr(),
     userEmail: DS.attr(),
     userImage: DS.attr(),
-    userIdToken: DS.attr(),
+    userPassword: DS.attr(),
     userFirstName: DS.attr(),
     userLastName: DS.attr(),
     userDob: DS.attr(),

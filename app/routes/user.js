@@ -4,7 +4,6 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
     session: service(),
 
-
     beforeModel: function() {
         this._super(...arguments);
         return this.get('session').fetch().catch(function() {
@@ -17,6 +16,11 @@ export default Route.extend({
         if(this.get('session.currentUser')) {
             this.controllerFor("application").set("authenticatedUser", this.get('session.currentUser'));
             this.controllerFor("user").set("authenticatedUser", this.get('session.currentUser'));
+            if(this.get('session.currentUser.email') === "admin@gmail.com") {
+                this.set('session.currentUser.userIsAdmin', true); // This will go in as a checkbox in Actual User Add Form, This is temp!
+            } else {
+                this.set('session.currentUser.userIsAdmin', false);
+            }
         } else {
                 this.transitionTo("index"); // Unauthenticated Request
         }

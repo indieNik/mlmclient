@@ -11,12 +11,24 @@
         </h2>
     </div>
     <aside class="menu">
+        {{#if authenticatedUser.userIsAdmin}}
+            <p class="menu-label">
+                Admin
+            </p>
+            <ul class="menu-list">
+                <li {{action 'toggleSidebar'}} id="addNewUser">
+                    {{#link-to "user.new"}}
+                        Add New User
+                    {{/link-to}}
+                </li>
+            </ul>
+        {{/if}}
         <p class="menu-label">
             General
         </p>
         <ul class="menu-list">
-            <li {{action 'toggleSidebar'}}>
-                {{#link-to 'user.profile' class="is-active"}}
+            <li {{action 'toggleSidebar'}} id="viewUser">
+                {{#link-to 'user.profile'}}
                     View Profile
                 {{/link-to}}
             </li>
