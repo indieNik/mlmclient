@@ -1,0 +1,40 @@
+<div class="profile column">
+    <div class="field">
+        <label class="label">First Name</label>
+        <div class="control">
+            {{input value=user.userFirstName class="input" type="text" placeholder="First Name"}}
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Email</label>
+        <div class="control">
+            {{input class="input" type="email" placeholder="Email" value=user.userEmail required=true}}
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Password</label>
+        <div class="control">
+            {{input class="input" type="password" placeholder="Email" value=user.userPassword required=true}}
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+            Admin User &nbsp;
+            {{input type="checkbox" id="is_admin"}}
+            </label>
+        </div>
+    </div>
+
+    <div class="field is-grouped">
+        <div class="control">
+            <button {{action "addUser"}} type="submit" class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+            <button {{action "cancelUser"}} type="cancel" class="button is-text">Cancel</button>
+        </div>
+    </div>
+</div>

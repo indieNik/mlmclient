@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('user', function() {
     this.route('profile');
     this.route('edit');
+    this.route('new');
   });
 });
 
