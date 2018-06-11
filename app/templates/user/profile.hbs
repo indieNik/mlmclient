@@ -9,85 +9,85 @@
     <div id="general-info" class="info-tabs is-offset-3">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">First Name</div>
-            <div class="column is-half">{{sessionUser.userFirstName}}</div>
+            <div class="column is-half">{{user.userFirstName}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Last Name</div>
-            <div class="column is-half">{{sessionUser.userLastName}}</div>
+            <div class="column is-half">{{user.userLastName}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Email</div>
-            <div class="column is-half">{{sessionUser.userEmail}}</div>
+            <div class="column is-half">{{user.userEmail}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Date of Birth</div>
-            <div class="column is-half">{{sessionUser.userDob}}</div>
+            <div class="column is-half">{{user.userDob}}</div>
         </div>
     </div>
     <div id="user-id-info" class="info-tabs hide-div">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">License</div>
-            <div class="column is-half">{{sessionUser.userLicenseID}}</div>
+            <div class="column is-half">{{user.userLicenseID}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">PAN Card</div>
-            <div class="column is-half">{{sessionUser.userPan}}</div>
+            <div class="column is-half">{{user.userPan}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Aadhaar ID</div>
-            <div class="column is-half">{{sessionUser.userAdhaar}}</div>
+            <div class="column is-half">{{user.userAdhaar}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Vorer ID</div>
-            <div class="column is-half">{{sessionUser.userVoterId}}</div>
+            <div class="column is-half">{{user.userVoterId}}</div>
         </div>
     </div>
     <div id="relationship-info" class="info-tabs hide-div">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Father's Name</div>
-            <div class="column is-half">{{sessionUser.userFatherName}}</div>
+            <div class="column is-half">{{user.userFatherName}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Mother's Name</div>
-            <div class="column is-half">{{sessionUser.userMotherName}}</div>
+            <div class="column is-half">{{user.userMotherName}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Married?</div>
-            <div class="column is-half">{{if sessionUser.userMaritalStatus "Yes" "No"}}</div>
+            <div class="column is-half">{{if user.userMaritalStatus "Yes" "No"}}</div>
         </div>
-        {{#if sessionUser.userMaritalStatus}}    
+        {{#if user.userMaritalStatus}}    
             <div class="columns">
                 <div class="column has-text-weight-bold is-half">Spouse Name</div>
-                <div class="column is-half">{{sessionUser.userSpouseName}}</div>
+                <div class="column is-half">{{user.userSpouseName}}</div>
             </div>
         {{/if}}
     </div>
     <div id="contact-info" class="info-tabs hide-div">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Mobile</div>
-            <div class="column is-half">{{sessionUser.userMobile}}</div>
+            <div class="column is-half">{{user.userMobile}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Alternate Number</div>
-            <div class="column is-half">{{sessionUser.userAlternateMobile}}</div>
+            <div class="column is-half">{{user.userAlternateMobile}}</div>
         </div>
     </div>
     <div id="address-info" class="info-tabs hide-div">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Country</div>
-            <div class="column is-half">{{sessionUser.userCountry}}</div>
+            <div class="column is-half">{{user.userCountry}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">State</div>
-            <div class="column is-half">{{sessionUser.userState}}</div>
+            <div class="column is-half">{{user.userState}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">City</div>
-            <div class="column is-half">{{sessionUser.userCity}}</div>
+            <div class="column is-half">{{user.userCity}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Street</div>
-            <div class="column is-half">{{sessionUser.userStreet}}</div>
+            <div class="column is-half">{{user.userStreet}}</div>
         </div>
     </div>
 </div>

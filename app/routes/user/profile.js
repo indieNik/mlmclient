@@ -5,14 +5,25 @@ export default Route.extend({
 
     userService: service(),
 
-    setupController() {
-        // Set the state of hamburger menu
-        let target = document.getElementsByClassName("navbar-burger")[0];
-        if (target) {
-            target.classList.remove('is-active');
-        }
-        this.controller.set('sessionUser', this.get('userService.currentLoggedInUser'));
+    beforeModel: function() {
+        this._super(...arguments);
+        return this.get('session').fetch().catch(function() {
+        });
     },
+
+    model() {
+        return this.store.query('user', {
+            orderBy: 'userUID',
+            equalTo: localStorage.getItem("authenticatedUserUID")
+        });
+    },
+
+    setupController() {
+        this._super(...arguments);
+        this.controllerFor("application").set("indexRoute", false);
+
+        this.controller.set('user', this.controller.get('model.firstObject'));
+    },    
 
     actions: {
         toggleTab(id) {

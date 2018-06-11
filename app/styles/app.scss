@@ -121,6 +121,7 @@ $lighttext: #e8edf3;
         height: calc(100vh - 6rem);
         margin: 0%;
         padding: 3rem;
+        overflow-y: scroll;
         a {
             color: #fff;
         }

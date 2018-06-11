@@ -20,28 +20,6 @@ export default Route.extend({
         this.controllerFor("application").set("indexRoute", false);
 
         this.controller.set('user', this.controller.get('model'));
-
-        // if(this.get('session.currentUser')) {
-
-        //     let user = this.store.peekRecord('user', this.get('session.currentUser.uid'));
-        //     if (user == null) {
-        //         user = this.store.createRecord("user");
-        //         user.set('id', this.get('session.currentUser.uid'));
-        //         user.set('userName', this.get('session.currentUser.displayName'));
-        //         user.set('userImage', this.get('session.currentUser.photoURL'));
-        //         user.set('userEmail', this.get('session.currentUser.email'));
-        //     }
-        //     if(this.get('session.currentUser.email') === "admin@gmail.com") {
-        //         this.set('session.currentUser.userIsAdmin', true); // This will go in as a checkbox in Actual User Add Form, This is temp!
-        //     } else {
-        //         this.set('session.currentUser.userIsAdmin', false);
-        //     }
-        //     this.controllerFor("application").set("authenticatedUser", user);
-        //     this.controllerFor("user").set("authenticatedUser", user);
-        // } else {
-        //     this.transitionTo("index"); // Unauthenticated Request
-        // }
-
         // Set the state of hamburger menu
         let target = document.getElementsByClassName("navbar-burger")[0];
         if (target) {

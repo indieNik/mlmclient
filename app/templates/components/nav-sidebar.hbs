@@ -1,17 +1,17 @@
 <div id="user-sidebar" class="column">
     <div class="box">
         <figure class="avatar">
-            <img src={{authenticatedUser.userImage}} class="image">
+            <img src={{loggedInUser.userImage}} class="image">
         </figure>
-        <h1 class="subtitle has-text-primary has-text-centered">
-            {{authenticatedUser.userFullName}}
+        <h1 class="has-text-primary has-text-centered">
+            {{loggedInUser.userFullName}}
         </h1>
-        <h2 class="subtitle has-text-primary has-text-centered">
-            <small>{{authenticatedUser.userEmail}}</small>
+        <h2 class="has-text-primary has-text-centered">
+            <small>{{loggedInUser.userEmail}}</small>
         </h2>
     </div>
     <aside class="menu">
-        {{#if authenticatedUser.userIsAdmin}}
+        {{#if loggedInUser.userIsAdmin}}
             <p class="menu-label">
                 Admin
             </p>
@@ -32,7 +32,7 @@
                     View Profile
                 {{/link-to}}
             </li>
-            <li>
+            <li {{action 'toggleSidebar'}} id="editUser">
                 {{#link-to 'user.edit'}}
                     Edit Profile
                 {{/link-to}}

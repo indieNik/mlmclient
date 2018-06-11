@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
 
     session: service(),
-    userService: service(),
+    // userService: service(),
 
     beforeModel: function() {
         return this.get('session').fetch().catch(function() {
@@ -30,9 +30,18 @@ export default Route.extend({
                     email: email,
                     password: password
                 }).then((data) => {    
-                    this.get('userService').setupUserData(data);
+                    // this.get('userService').setupUserData(data);
+                    if (typeof(Storage) !== "undefined") {
+                        // Store
+                        localStorage.setItem("authenticatedUserUID", data.uid);
+                        this.transitionTo("user");
+                    } else {
+                        alert("Cannot continue since no support for browser storage!")
+                    }
+                    console.log('Got ID', localStorage.getItem("authenticatedUserUID"));
                 }).catch( error => {
-                    alert("Error Fetching Session", error);
+                    alert("Error Fetching Session");
+                    console.log(error);
                 });
             }
         },

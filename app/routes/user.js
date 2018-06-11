@@ -10,12 +10,18 @@ export default Route.extend({
         });
     },
 
+    model() {
+        return this.store.query('user', {
+            orderBy: 'userUID',
+            equalTo: localStorage.getItem("authenticatedUserUID")
+        });
+    },
+
     setupController() {
         this._super(...arguments);
         this.controllerFor("application").set("indexRoute", false);
         if(this.get('session.currentUser')) {
-            this.controllerFor("application").set("authenticatedUser", this.get('session.currentUser'));
-            this.controller.set("authenticatedUser", this.get('session.currentUser'));
+            this.controller.set("authenticatedUser", this.controller.get('model').firstObject);
         } else {
                 this.transitionTo("index"); // Unauthenticated Request
         }
