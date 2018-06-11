@@ -9,83 +9,85 @@
     <div id="general-info" class="info-tabs is-offset-3">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">First Name</div>
-            <div class="column is-half">Nikhil</div>
+            <div class="column is-half">{{sessionUser.userFirstName}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Last Name</div>
-            <div class="column is-half">Patil</div>
+            <div class="column is-half">{{sessionUser.userLastName}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Email</div>
-            <div class="column is-half">niki.thrill@gmail.com</div>
+            <div class="column is-half">{{sessionUser.userEmail}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Date of Birth</div>
-            <div class="column is-half">15th April 1992</div>
+            <div class="column is-half">{{sessionUser.userDob}}</div>
         </div>
     </div>
     <div id="user-id-info" class="info-tabs hide-div">
         <div class="columns">
-            <div class="column has-text-weight-bold is-half">TOKEN</div>
-            <div class="column is-half">-LDJHJD283H3HF8FYFHB</div>
+            <div class="column has-text-weight-bold is-half">License</div>
+            <div class="column is-half">{{sessionUser.userLicenseID}}</div>
         </div>
         <div class="columns">
-            <div class="column has-text-weight-bold is-half">PAN CARD ID</div>
-            <div class="column is-half">DPSYY8729D</div>
+            <div class="column has-text-weight-bold is-half">PAN Card</div>
+            <div class="column is-half">{{sessionUser.userPan}}</div>
         </div>
         <div class="columns">
-            <div class="column has-text-weight-bold is-half">AADHAAR ID</div>
-            <div class="column is-half">100301314387</div>
+            <div class="column has-text-weight-bold is-half">Aadhaar ID</div>
+            <div class="column is-half">{{sessionUser.userAdhaar}}</div>
         </div>
         <div class="columns">
-            <div class="column has-text-weight-bold is-half">VOTER ID</div>
-            <div class="column is-half">AJAJD7862H</div>
+            <div class="column has-text-weight-bold is-half">Vorer ID</div>
+            <div class="column is-half">{{sessionUser.userVoterId}}</div>
         </div>
     </div>
     <div id="relationship-info" class="info-tabs hide-div">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Father's Name</div>
-            <div class="column is-half">Jagadeesh Patil</div>
+            <div class="column is-half">{{sessionUser.userFatherName}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Mother's Name</div>
-            <div class="column is-half">Anupama</div>
+            <div class="column is-half">{{sessionUser.userMotherName}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Married?</div>
-            <div class="column is-half">Yes</div>
+            <div class="column is-half">{{if sessionUser.userMaritalStatus "Yes" "No"}}</div>
         </div>
-        <div class="columns">
-            <div class="column has-text-weight-bold is-half">Spouse Name</div>
-            <div class="column is-half">Future Wifey</div>
-        </div>
+        {{#if sessionUser.userMaritalStatus}}    
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">Spouse Name</div>
+                <div class="column is-half">{{sessionUser.userSpouseName}}</div>
+            </div>
+        {{/if}}
     </div>
     <div id="contact-info" class="info-tabs hide-div">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Mobile</div>
-            <div class="column is-half">8749025456</div>
+            <div class="column is-half">{{sessionUser.userMobile}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Alternate Number</div>
-            <div class="column is-half">9641148263</div>
+            <div class="column is-half">{{sessionUser.userAlternateMobile}}</div>
         </div>
     </div>
     <div id="address-info" class="info-tabs hide-div">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Country</div>
-            <div class="column is-half">India</div>
+            <div class="column is-half">{{sessionUser.userCountry}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">State</div>
-            <div class="column is-half">KA</div>
+            <div class="column is-half">{{sessionUser.userState}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">City</div>
-            <div class="column is-half">Belagavi</div>
+            <div class="column is-half">{{sessionUser.userCity}}</div>
         </div>
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Street</div>
-            <div class="column is-half">Ramteerth Nagar</div>
+            <div class="column is-half">{{sessionUser.userStreet}}</div>
         </div>
     </div>
 </div>

@@ -1,12 +1,17 @@
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
+
+    userService: service(),
+
     setupController() {
         // Set the state of hamburger menu
         let target = document.getElementsByClassName("navbar-burger")[0];
         if (target) {
             target.classList.remove('is-active');
         }
+        this.controller.set('sessionUser', this.get('userService.currentLoggedInUser'));
     },
 
     actions: {

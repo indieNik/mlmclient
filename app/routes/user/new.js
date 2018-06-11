@@ -58,8 +58,10 @@ export default Route.extend({
                 // console.log('New Firebase User', newFirebaseUser);
                 user.set('userUID',newFirebaseUser.uid);
                 // console.log("Saving User: ", user);
-                user.save().then(() => {
+                user.save().then((savedUser) => {
                     // console.log('success on save', success);
+                    alert("New User " + savedUser.userFullName + " Created!")
+                    this.transitionTo("user");
                 })
                 .catch(error => {
                     alert('Error while saving User', error);

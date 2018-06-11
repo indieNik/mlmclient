@@ -20,7 +20,7 @@ export default DS.Model.extend({
     userFatherName: DS.attr(),
     userMotherName: DS.attr(),
     userMaritalStatus: DS.attr('boolean', { defaultValue: false}),
-    userSpouseName: DS.attr(),
+    userSpouseName: DS.attr('string', { defaultValue: '' }),
     
     userMobile: DS.attr(),
     userAlternateMobile: DS.attr(),
