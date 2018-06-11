@@ -5,11 +5,13 @@ export default Component.extend({
 
     session: service(),
     router: service(),
+    userService: service(),
 
     init() {
         this._super(...arguments);
         if(this.get('session.currentUser')) {
-            this.set("authenticatedUser", this.get('session.currentUser'));
+            // console.log('Hello:', this.get('userService.currentLoggedInUser'));
+            this.set("authenticatedUser", this.get('userService.currentLoggedInUser'));
         } else {
                 this.transitionTo("index"); // Unauthenticated Request
         }
@@ -19,7 +21,6 @@ export default Component.extend({
         toggleSidebar: function() {
             var target = document.getElementById("user-sidebar");
             if (target) target.classList.toggle('is-active');
-            console.log("Toggle Sidebar");
         },
 
         toggleTab(id) {

@@ -1,13 +1,13 @@
 <div id="user-sidebar" class="column">
     <div class="box">
         <figure class="avatar">
-            <img src="{{authenticatedUser.photoURL}}" class="image">
+            <img src={{authenticatedUser.userImage}} class="image">
         </figure>
-        <h1 class="title has-text-primary has-text-centered">
-            {{authenticatedUser.displayName}}
+        <h1 class="subtitle has-text-primary has-text-centered">
+            {{authenticatedUser.userFullName}}
         </h1>
         <h2 class="subtitle has-text-primary has-text-centered">
-            {{authenticatedUser.email}}
+            <small>{{authenticatedUser.userEmail}}</small>
         </h2>
     </div>
     <aside class="menu">

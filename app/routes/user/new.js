@@ -52,38 +52,17 @@ export default Route.extend({
     actions: {
         addUser() {
             let user = this.controller.get('user');
-            let isAdmin = document.getElementById("is_admin").checked;
-            console.log("Saving First User: ", user);
-            
-            user.set('userIsAdmin', isAdmin);
-            user.set('userUID','');
-            user.set('userImage','');
-            user.set('userLastName','');
-            user.set('userDob','');
-            user.set('userPan','');
-            user.set('userAdhaar','');
-            user.set('userVoterId','');
-            user.set('userLicenseID','');
-            user.set('userFatherName','');
-            user.set('userMotherName','');
-            user.set('userMaritalStatus','');
-            user.set('userSpouseName','');
-            user.set('userMobile','');
-            user.set('userAlternateMobile','');
-            user.set('userState','');
-            user.set('userCity','');
-            user.set('userStreet','');
-
-            console.log("Saving User: ", user);
-
             const auth = this.get('firebaseApp').auth();
             auth.createUserWithEmailAndPassword(user.userEmail, user.userPassword)
-            .then(() => {
-                user.save().then(success => {
-                    console.log('success on save', success);
+            .then((newFirebaseUser) => {
+                // console.log('New Firebase User', newFirebaseUser);
+                user.set('userUID',newFirebaseUser.uid);
+                // console.log("Saving User: ", user);
+                user.save().then(() => {
+                    // console.log('success on save', success);
                 })
                 .catch(error => {
-                    console.log('error on save', error);
+                    alert('Error while saving User', error);
                 })
             })
             .catch(error => {
