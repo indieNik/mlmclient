@@ -143,6 +143,72 @@
 </div>
 
 <div class="hero is-primary" style="padding:5px; border-radius: 2px;">
+    <h1 class="subtitle">Bank Details</h1>
+</div>
+
+<br>
+
+<div class="columns form">
+    <div class="profile column is-5 is-offset-1">
+        <div class="field">
+            <label class="label">Bank Name</label>
+            <div class="control">
+                {{input value=user.userBankName class="input" type="text" placeholder="Bank Name"}}
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">Acc. Number</label>
+            <div class="control">
+                {{input value=user.userBankAccountNo class="input" type="text" placeholder="Account Number"}}
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">IFSC Code</label>
+            <div class="control">
+                {{input class="input" type="text" placeholder="IFSC Code" value=user.userBankIFSC}}
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Branch Name</label>
+            <div class="control">
+                {{input value=user.userBankBranch class="input" type="text" placeholder="Branch Code"}}
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="column is-5">
+        <div class="field">
+            <label class="label">Account Type</label>
+            <div class="control">
+                <div class="select is-primary">
+                <select onchange={{action (mut user.userBankAccountType) value="target.value"}}>
+                    <option value="Current" selected={{eq user.userBankAccountType "Current"}}>Current</option>
+                    <option value="Savings" selected={{eq user.userBankAccountType "Savings"}}>Savings</option>
+                </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="field">
+            <label class="label">Branch Code</label>
+            <div class="control">
+                {{input value=user.userBankBranchCode class="input" type="text" placeholder="Branch Code"}}
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Branch City</label>
+            <div class="control">
+                {{input value=user.userBankCity class="input" type="text" placeholder="Branch City"}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hero is-primary" style="padding:5px; border-radius: 2px;">
     <h1 class="subtitle">Location</h1>
 </div>
 

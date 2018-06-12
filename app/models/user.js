@@ -16,6 +16,14 @@ export default DS.Model.extend({
     userAdhaar: DS.attr(),
     userVoterId: DS.attr(),
     userLicenseID: DS.attr(),
+
+    userBankName: DS.attr(),
+    userBankAccountNo: DS.attr(),
+    userBankIFSC: DS.attr(),
+    userBankAccountType: DS.attr(),
+    userBankBranchCode: DS.attr(),
+    userBankBranch: DS.attr(),
+    userBankCity: DS.attr(),
     
     userFatherName: DS.attr(),
     userMotherName: DS.attr(),

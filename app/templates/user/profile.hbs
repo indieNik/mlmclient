@@ -2,6 +2,7 @@
     <p class="panel-tabs profile">
         <a href="#" {{action "toggleTab" "general-info"}} class="nav-pill is-active">General</a>
         <a href="#" {{action "toggleTab" "user-id-info"}} class="nav-pill">Identity</a>
+        <a href="#" {{action "toggleTab" "bank-info"}} class="nav-pill">Banking</a>
         <a href="#" {{action "toggleTab" "relationship-info"}} class="nav-pill">Relationship</a>
         <a href="#" {{action "toggleTab" "contact-info"}} class="nav-pill">Contact</a>
         <a href="#" {{action "toggleTab" "address-info"}} class="nav-pill">Address</a>
@@ -40,6 +41,36 @@
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Vorer ID</div>
             <div class="column is-half">{{user.userVoterId}}</div>
+        </div>
+    </div>
+    <div id="bank-info" class="info-tabs hide-div">
+        <div class="columns">
+            <div class="column has-text-weight-bold is-half">Bank Name</div>
+            <div class="column is-half">{{user.userBankName}}</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold is-half">Account No</div>
+            <div class="column is-half">{{user.userBankAccountNo}}</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold is-half">IFSC Code</div>
+            <div class="column is-half">{{user.userBankIFSC}}</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold is-half">Account Type</div>
+            <div class="column is-half">{{user.userBankAccountType}}</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold is-half">Branch Code</div>
+            <div class="column is-half">{{user.userBankBranchCode}}</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold is-half">Branch Name</div>
+            <div class="column is-half">{{user.userBankBranch}}</div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-weight-bold is-half">City</div>
+            <div class="column is-half">{{user.userBankCity}}</div>
         </div>
     </div>
     <div id="relationship-info" class="info-tabs hide-div">
