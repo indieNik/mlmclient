@@ -3,8 +3,6 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
 
-    userService: service(),
-
     beforeModel: function() {
         this._super(...arguments);
         return this.get('session').fetch().catch(function() {

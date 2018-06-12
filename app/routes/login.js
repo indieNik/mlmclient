@@ -4,7 +4,6 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
 
     session: service(),
-    // userService: service(),
 
     beforeModel: function() {
         return this.get('session').fetch().catch(function() {
@@ -30,7 +29,6 @@ export default Route.extend({
                     email: email,
                     password: password
                 }).then((data) => {    
-                    // this.get('userService').setupUserData(data);
                     if (typeof(Storage) !== "undefined") {
                         // Store
                         localStorage.setItem("authenticatedUserUID", data.uid);

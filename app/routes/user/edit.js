@@ -3,7 +3,6 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
     session: service(),
-    userService: service(),
     firebaseApp: service(),
 
     beforeModel: function() {
