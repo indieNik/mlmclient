@@ -118,7 +118,8 @@ $lighttext: #e8edf3;
     #user-sidebar {
         background-color: #22264b;
         color: #fff;
-        height: calc(100vh - 6rem);
+        min-height: 100vh;
+        height: 100%;
         margin: 0%;
         padding: 3rem;
         overflow-y: scroll;
