@@ -37,6 +37,8 @@ export default Route.extend({
             [].forEach.call(activeTabs, activeTab => {
                 activeTab.classList.remove("is-active");
             });
+            let activeTab = document.getElementsByClassName(id)[0];
+            activeTab.classList.add("is-active");
         }
     }
 });
