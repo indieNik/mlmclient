@@ -17,7 +17,7 @@
             </p>
             <ul class="menu-list">
                 <li {{action 'toggleSidebar'}} id="addNewUser">
-                    {{#link-to "user.new"}}
+                    {{#link-to "user.new-admin"}}
                         Add New Admin
                     {{/link-to}}
                 </li>
@@ -53,6 +53,11 @@
         </p>
         <ul class="menu-list">
             <li>
+                {{#link-to 'user.new'}}
+                    Add New Recruit
+                {{/link-to}}
+            </li>
+            <li>
                 {{#link-to 'recruits' user.recruits}}
                     Your Recruits
                 {{/link-to}}
@@ -60,11 +65,6 @@
             <li>
                 {{#link-to 'recruits' user.recruits}}
                     Your Pending Recruits
-                {{/link-to}}
-            </li>
-            <li>
-                {{#link-to 'recruits.new' user}}
-                    Add New Recruit
                 {{/link-to}}
             </li>
         </ul>

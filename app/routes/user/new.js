@@ -5,9 +5,9 @@ export default Route.extend({
     session: service(),
     firebaseApp: service(),
 
-    beforeModel: function() {
+    beforeModel: function () {
         this._super(...arguments);
-        return this.get('session').fetch().catch(function() {
+        return this.get('session').fetch().catch(function () {
         });
     },
 
@@ -32,22 +32,22 @@ export default Route.extend({
             let user = this.controller.get('user');
             const auth = this.get('firebaseApp').auth();
             auth.createUserWithEmailAndPassword(user.userEmail, user.userPassword)
-            .then((newFirebaseUser) => {
-                // console.log('New Firebase User', newFirebaseUser);
-                user.set('userUID',newFirebaseUser.uid);
-                // console.log("Saving User: ", user);
-                user.save().then((savedUser) => {
-                    // console.log('success on save', success);
-                    alert("New User " + savedUser.userFullName + " Created!")
-                    this.transitionTo("user");
+                .then((newFirebaseUser) => {
+                    // console.log('New Firebase User', newFirebaseUser);
+                    user.set('userUID', newFirebaseUser.uid);
+                    // console.log("Saving User: ", user);
+                    user.save().then((savedUser) => {
+                        // console.log('success on save', success);
+                        alert("New User " + savedUser.userFullName + " Created!")
+                        this.transitionTo("user");
+                    })
+                        .catch(error => {
+                            alert('Error while saving User', error);
+                        })
                 })
                 .catch(error => {
-                    alert('Error while saving User', error);
-                })
-            })
-            .catch(error => {
-                alert(error.message);
-            });
+                    alert(error.message);
+                });
         },
 
         cancelUser() {
@@ -55,8 +55,23 @@ export default Route.extend({
             // if the model 'isNew'
             this.controller.get('model').rollbackAttributes();
             this.transitionTo("user");
-        }  
+        },
+
+        willTransition(transition) {
+
+            let model = this.controller.get('model');
+
+            if (model.get('hasDirtyAttributes')) {
+                let confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");
+
+                if (confirmation) {
+                    model.rollbackAttributes();
+                } else {
+                    transition.abort();
+                }
+            }
+        }
     },
 
-    
+
 });
