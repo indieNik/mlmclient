@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('profile');
     this.route('edit');
     this.route('new');
+    this.route('new-admin');
   });
 });
 
