@@ -1,269 +1,310 @@
-<div class="hero is-primary" style="padding:5px; border-radius: 2px;">
-    <h1 class="subtitle">Primary Details</h1>
-</div>
+<form {{action "addUser" on="submit"}}>
+    <div class="hero is-primary" style="padding:5px; border-radius: 2px;">
+        <h1 class="subtitle">Primary Details</h1>
+    </div>
 
-<br>
+    <br>
 
-<div class="columns form">
-    <div class="profile column is-5 is-offset-1">
-        <div class="field">
-            <label class="label">First Name</label>
-            <div class="control">
-                {{input value=user.userFirstName class="input" type="text" placeholder="First Name"}}
+    <div class="columns form">
+        <div class="profile column is-5 is-offset-1">
+            <div class="field">
+                <label class="label">First Name</label>
+                <div class="control">
+                    {{input value=user.userFirstName class="input" autocomplete='given-name' type="text" placeholder="First Name" required=true}}
+                </div>
             </div>
+
+            <div class="field">
+                <label class="label">Last Name</label>
+                <div class="control">
+                    {{input value=user.userLastName class="input" autocomplete='family-name' type="text" placeholder="Last Name" required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    {{input class="input" type="email" autocomplete='email' placeholder="Email" value=user.userEmail required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    {{input class="input" type="password" autocomplete='current-password' placeholder="Password" value=user.userPassword required=true}}
+                </div>
+            </div>
+
         </div>
 
-        <div class="field">
-            <label class="label">Last Name</label>
-            <div class="control">
-                {{input value=user.userLastName class="input" type="text" placeholder="Last Name"}}
+        <div class="column is-5">
+            <div class="field" hidden>
+                <label class="label">UID</label>
+                <div class="control">
+                    {{input value=user.uid class="input" type="text" disabled=true}}
+                </div>
             </div>
-        </div>
 
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-                {{input class="input" type="email" placeholder="Email" value=user.userEmail required=true}}
+            <div class="field">
+                <label class="label">Date of Birth</label>
+                <div class="control">
+                    {{input value=user.userDob class="input" autocomplete='bday' type="date" required=true}}
+                </div>
             </div>
-        </div>
+            
+            <div class="field">
+                <label class="label">Mobile</label>
+                <div class="control">
+                    {{input value=user.userMobile class="input" autocomplete='tel' type="tel" placeholder="Mobile Number" required=true}}
+                </div>
+            </div>
 
-        <div class="field">
-            <label class="label">Password</label>
-            <div class="control">
-                {{input class="input" type="password" placeholder="Email" value=user.userPassword required=true}}
+            <div class="field">
+                <label class="label">Alternate Contact</label>
+                <div class="control">
+                    {{input value=user.userAlternateMobile class="input" autocomplete='tel' type="tel" placeholder="Alternate Mobile Number" required=true}}
+                </div>
             </div>
         </div>
 
     </div>
 
-    <div class="column is-5">
-        <div class="field" hidden>
-            <label class="label">UID</label>
-            <div class="control">
-                {{input value=user.uid class="input" type="text" disabled=true}}
-            </div>
-        </div>
+    <div class="hero is-primary" style="padding:5px; border-radius: 2px;">
+        <h1 class="subtitle">Secondary Details</h1>
+    </div>
 
-        <div class="field">
-            <label class="label">Date of Birth</label>
-            <div class="control">
-                {{input value=user.userDob class="input" type="date"}}
+    <br>
+
+    <div class="columns form">
+        <div class="profile column is-5 is-offset-1">
+            <div class="field">
+                <label class="label">PAN Number</label>
+                <div class="control">
+                    {{input value=user.userPan class="input" type="text" placeholder="PAN Number" required=true}}
+                </div>
             </div>
+            <div class="field">
+                <label class="label">Aadhaar Number</label>
+                <div class="control">
+                    {{input value=user.userAdhaar class="input" type="text" placeholder="Aadhaar Number" required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Voter ID</label>
+                <div class="control">
+                    {{input class="input" type="text" placeholder="Voter ID" value=user.userVoterId required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">License ID</label>
+                <div class="control">
+                    {{input class="input" type="text" placeholder="License Number" value=user.userLicenseID required=true}}
+                </div>
+            </div>
+
         </div>
         
-        <div class="field">
-            <label class="label">Mobile</label>
-            <div class="control">
-                {{input value=user.userMobile class="input" type="number" placeholder="Mobile Number"}}
+        <div class="column is-5">
+            <div class="field">
+                <label class="label">Father</label>
+                <div class="control">
+                    {{input value=user.userFatherName class="input" type="text" placeholder="Father's Name" required=true}}
+                </div>
             </div>
+
+            <div class="field">
+                <label class="label">Mother</label>
+                <div class="control">
+                    {{input value=user.userMotherName class="input" type="text" placeholder="Mother's Name" required=true}}
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <div class="control">
+                <label class="checkbox">
+                    Married? <br>
+                    {{input type="checkbox" checked=user.userMaritalStatus}}
+                    {{#if user.userMaritalStatus}} Yes {{/if}}
+                </label>
+                </div>
+            </div>
+
+            {{#if user.userMaritalStatus}}
+                <div class="field">
+                    <label class="label is-bold">Spouse</label>
+                    <div class="control">
+                        {{input value=user.userSpouseName class="input" type="text" placeholder="Spouse's Name" required=true}}
+                    </div>
+                </div>
+            {{/if}}
         </div>
 
-        <div class="field">
-            <label class="label">Alternate Contact</label>
-            <div class="control">
-                {{input value=user.userAlternateMobile class="input" type="number" placeholder="Alternate Mobile Number"}}
+    </div>
+
+    <div class="hero is-primary" style="padding:5px; border-radius: 2px;">
+        <h1 class="subtitle">Bank Details</h1>
+    </div>
+
+    <br>
+
+    <div class="columns form">
+        <div class="profile column is-5 is-offset-1">
+            <div class="field">
+                <label class="label">Bank Name</label>
+                <div class="control">
+                    {{input value=user.userBankName class="input" type="text" placeholder="Bank Name" required=true}}
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Acc. Number</label>
+                <div class="control">
+                    {{input value=user.userBankAccountNo class="input" type="text" placeholder="Account Number" required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">IFSC Code</label>
+                <div class="control">
+                    {{input class="input" type="text" placeholder="IFSC Code" value=user.userBankIFSC required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Branch Name</label>
+                <div class="control">
+                    {{input value=user.userBankBranch class="input" type="text" placeholder="Branch Code" required=true}}
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="column is-5">
+            <div class="field">
+                <label class="label">Account Type</label>
+                <div class="control">
+                    <div class="select is-primary">
+                    <select onchange={{action (mut user.userBankAccountType) value="target.value" required=true}}>
+                        <option value="Current" selected={{eq user.userBankAccountType "Current"}}>Current</option>
+                        <option value="Savings" selected={{eq user.userBankAccountType "Savings"}}>Savings</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Branch Code</label>
+                <div class="control">
+                    {{input value=user.userBankBranchCode class="input" type="text" placeholder="Branch Code" required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Branch City</label>
+                <div class="control">
+                    {{input value=user.userBankCity class="input" type="text" autocomplete='address-level2' placeholder="Branch City" required=true}}
+                </div>
             </div>
         </div>
     </div>
 
-</div>
-
-<div class="hero is-primary" style="padding:5px; border-radius: 2px;">
-    <h1 class="subtitle">Secondary Details</h1>
-</div>
-
-<br>
-
-<div class="columns form">
-    <div class="profile column is-5 is-offset-1">
-        <div class="field">
-            <label class="label">PAN Number</label>
-            <div class="control">
-                {{input value=user.userPan class="input" type="text" placeholder="PAN Number"}}
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">Aadhaar Number</label>
-            <div class="control">
-                {{input value=user.userAdhaar class="input" type="text" placeholder="Aadhaar Number"}}
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Voter ID</label>
-            <div class="control">
-                {{input class="input" type="text" placeholder="Voter ID" value=user.userVoterId}}
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">License ID</label>
-            <div class="control">
-                {{input class="input" type="text" placeholder="License Number" value=user.userLicenseID}}
-            </div>
-        </div>
-
+    <div class="hero is-primary" style="padding:5px; border-radius: 2px;">
+        <h1 class="subtitle">Current Location</h1>
     </div>
-    
-    <div class="column is-5">
-        <div class="field">
-            <label class="label">Father</label>
-            <div class="control">
-                {{input value=user.userFatherName class="input" type="text" placeholder="Father's Name"}}
+
+    <br>
+
+    <div class="columns form">
+        <div class="profile column is-5 is-offset-1">
+            <div class="field">
+                <label class="label">Country</label>
+                <div class="control">
+                    {{input value=user.userCurrentCountry class="input" autocomplete='country-name' type="text" placeholder="Country" required=true}}
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">State</label>
+                <div class="control">
+                    {{input value=user.userCurrentState class="input" autocomplete='address-level1' type="text" placeholder="State" required=true}}
+                </div>
             </div>
         </div>
 
+        <div class="profile column is-5">
+            <div class="field">
+                <label class="label">City</label>
+                <div class="control">
+                    {{input class="input" type="text" autocomplete='address-level2' placeholder="City" value=user.userCurrentCity required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Street</label>
+                <div class="control">
+                    {{input class="input" type="text" autocomplete='address-level3' placeholder="Street Address" value=user.userCurrentStreet required=true}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero is-primary" style="padding:5px; border-radius: 2px;">
+        <h1 class="subtitle">Permanent Location</h1>
+    </div>
+
+    <br>
+
+    <div class="columns form">
+        <div class="profile column is-5 is-offset-1">
+            <div class="field">
+                <label class="label">Country</label>
+                <div class="control">
+                    {{input value=user.userCountry class="input" autocomplete='country-name' type="text" placeholder="Country" required=true}}
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">State</label>
+                <div class="control">
+                    {{input value=user.userState class="input" autocomplete='address-level1' type="text" placeholder="State" required=true}}
+                </div>
+            </div>
+        </div>
+
+        <div class="profile column is-5">
+            <div class="field">
+                <label class="label">City</label>
+                <div class="control">
+                    {{input class="input" type="text" autocomplete='address-level2' placeholder="City" value=user.userCity required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Street</label>
+                <div class="control">
+                    {{input class="input" type="text" autocomplete='address-level3' placeholder="Street Address" value=user.userStreet required=true}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column is-3 is-offset-5">
         <div class="field">
-            <label class="label">Mother</label>
             <div class="control">
-                {{input value=user.userMotherName class="input" type="text" placeholder="Mother's Name"}}
+                <label class="checkbox">
+                Admin User &nbsp;
+                {{input type="checkbox" checked=user.userIsAdmin disabled=true}}
+                </label>
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-link">Submit</button>
+            </div>
+            <div class="control">
+                <button {{action "cancelUser"}} type="cancel" class="button is-link is-danger">Cancel</button>
             </div>
         </div>
         <br>
-        <div class="field">
-            <div class="control">
-            <label class="checkbox">
-                Married? <br>
-                {{input type="checkbox" checked=user.userMaritalStatus}}
-                {{#if user.userMaritalStatus}} Yes {{/if}}
-            </label>
-            </div>
-        </div>
-
-        {{#if user.userMaritalStatus}}
-            <div class="field">
-                <label class="label is-bold">Spouse</label>
-                <div class="control">
-                    {{input value=user.userSpouseName class="input" type="text" placeholder="Spouse's Name"}}
-                </div>
-            </div>
-        {{/if}}
     </div>
-
-</div>
-
-<div class="hero is-primary" style="padding:5px; border-radius: 2px;">
-    <h1 class="subtitle">Bank Details</h1>
-</div>
-
-<br>
-
-<div class="columns form">
-    <div class="profile column is-5 is-offset-1">
-        <div class="field">
-            <label class="label">Bank Name</label>
-            <div class="control">
-                {{input value=user.userBankName class="input" type="text" placeholder="Bank Name"}}
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">Acc. Number</label>
-            <div class="control">
-                {{input value=user.userBankAccountNo class="input" type="text" placeholder="Account Number"}}
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">IFSC Code</label>
-            <div class="control">
-                {{input class="input" type="text" placeholder="IFSC Code" value=user.userBankIFSC}}
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Branch Name</label>
-            <div class="control">
-                {{input value=user.userBankBranch class="input" type="text" placeholder="Branch Code"}}
-            </div>
-        </div>
-
-    </div>
-    
-    <div class="column is-5">
-        <div class="field">
-            <label class="label">Account Type</label>
-            <div class="control">
-                <div class="select is-primary">
-                <select onchange={{action (mut user.userBankAccountType) value="target.value"}}>
-                    <option value="Current" selected={{eq user.userBankAccountType "Current"}}>Current</option>
-                    <option value="Savings" selected={{eq user.userBankAccountType "Savings"}}>Savings</option>
-                </select>
-                </div>
-            </div>
-        </div>
-        
-        <div class="field">
-            <label class="label">Branch Code</label>
-            <div class="control">
-                {{input value=user.userBankBranchCode class="input" type="text" placeholder="Branch Code"}}
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Branch City</label>
-            <div class="control">
-                {{input value=user.userBankCity class="input" type="text" placeholder="Branch City"}}
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="hero is-primary" style="padding:5px; border-radius: 2px;">
-    <h1 class="subtitle">Location</h1>
-</div>
-
-<br>
-
-<div class="columns form">
-    <div class="profile column is-5 is-offset-1">
-        <div class="field">
-            <label class="label">Country</label>
-            <div class="control">
-                {{input value=user.userCountry class="input" type="text" placeholder="Country"}}
-            </div>
-        </div>
-        <div class="field">
-            <label class="label">State</label>
-            <div class="control">
-                {{input value=user.userState class="input" type="text" placeholder="State"}}
-            </div>
-        </div>
-    </div>
-
-    <div class="profile column is-5">
-        <div class="field">
-            <label class="label">City</label>
-            <div class="control">
-                {{input class="input" type="text" placeholder="City" value=user.userCity}}
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Street</label>
-            <div class="control">
-                {{input class="input" type="text" placeholder="Street Address" value=user.userStreet}}
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="column is-3 is-offset-5">
-    <div class="field">
-        <div class="control">
-            <label class="checkbox">
-            Admin User &nbsp;
-            {{input type="checkbox" checked=user.userIsAdmin disabled=true}}
-            </label>
-        </div>
-    </div>
-
-    <div class="field is-grouped">
-        <div class="control">
-            <button {{action "addUser"}} type="submit" class="button is-link">Submit</button>
-        </div>
-        <div class="control">
-            <button {{action "cancelUser"}} type="cancel" class="button is-link is-danger">Cancel</button>
-        </div>
-    </div>
-    <br>
-</div>
+</form>
