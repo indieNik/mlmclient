@@ -210,7 +210,7 @@
 </div> --}}
 
 <div class="hero is-primary" style="padding:5px; border-radius: 2px;">
-    <h1 class="subtitle">Location</h1>
+    <h1 class="subtitle">Permanent Location</h1>
 </div>
 
 <br>
@@ -220,13 +220,13 @@
         <div class="field">
             <label class="label">Country</label>
             <div class="control">
-                {{input value=user.userCountry class="input" type="text" placeholder="Country"}}
+                {{input value=user.userCountry class="input" type="text" placeholder="Country" disabled=true}}
             </div>
         </div>
         <div class="field">
             <label class="label">State</label>
             <div class="control">
-                {{input value=user.userState class="input" type="text" placeholder="State"}}
+                {{input value=user.userState class="input" type="text" placeholder="State" disabled=true}}
             </div>
         </div>
     </div>
@@ -235,14 +235,53 @@
         <div class="field">
             <label class="label">City</label>
             <div class="control">
-                {{input class="input" type="text" placeholder="City" value=user.userCity}}
+                {{input class="input" type="text" placeholder="City" value=user.userCity disabled=true}}
             </div>
         </div>
 
         <div class="field">
             <label class="label">Street</label>
             <div class="control">
-                {{input class="input" type="text" placeholder="Street Address" value=user.userStreet}}
+                {{input class="input" type="text" placeholder="Street Address" value=user.userStreet disabled=true}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hero is-primary" style="padding:5px; border-radius: 2px;">
+    <h1 class="subtitle">Current Location</h1>
+</div>
+
+<br>
+
+<div class="columns form">
+    <div class="profile column is-5 is-offset-1">
+        <div class="field">
+            <label class="label">Country</label>
+            <div class="control">
+                {{input value=user.userCurrentCountry class="input" type="text" placeholder="Country"}}
+            </div>
+        </div>
+        <div class="field">
+            <label class="label">State</label>
+            <div class="control">
+                {{input value=user.userCurrentState class="input" type="text" placeholder="State"}}
+            </div>
+        </div>
+    </div>
+
+    <div class="profile column is-5">
+        <div class="field">
+            <label class="label">City</label>
+            <div class="control">
+                {{input class="input" type="text" placeholder="City" value=user.userCurrentCity}}
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Street</label>
+            <div class="control">
+                {{input class="input" type="text" placeholder="Street Address" value=user.userCurrentStreet}}
             </div>
         </div>
     </div>
