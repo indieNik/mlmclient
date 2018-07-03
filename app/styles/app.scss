@@ -156,6 +156,10 @@ $lighttext: #e8edf3;
     padding: 1rem 2rem;
     border: 1px solid #22264b !important;
     justify-content: space-evenly !important;
+    overflow: scroll;
+    a:first {
+        margin-left: 5rem;
+    }
     a {
         color: #fff !important;
         padding: 0.4em !important;

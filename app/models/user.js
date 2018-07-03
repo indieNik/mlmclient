@@ -37,6 +37,10 @@ export default DS.Model.extend({
     userState: DS.attr(),
     userCity: DS.attr(),
     userStreet: DS.attr(),
+    userCurrentCountry: DS.attr(),
+    userCurrentState: DS.attr(),
+    userCurrentCity: DS.attr(),
+    userCurrentStreet: DS.attr(),
     userIsAdmin: DS.attr('boolean', { defaultValue: false}),
     
     userFullName: computed('userFirstName', 'userLastName', function() {
