@@ -8,7 +8,7 @@ export default DS.Model.extend({
     userFirstName: DS.attr(),
     userLastName: DS.attr(),
     userEmail: DS.attr(),
-    userPassword: DS.attr(),
+    userPassword: DS.attr(), //To-Do: Need to use a Password hash like md5
     userImage: DS.attr('string', { defaultValue: '/images/mlm-1200.png' }),
     userDob: DS.attr(),
     
@@ -20,7 +20,7 @@ export default DS.Model.extend({
     userBankName: DS.attr(),
     userBankAccountNo: DS.attr(),
     userBankIFSC: DS.attr(),
-    userBankAccountType: DS.attr(),
+    userBankAccountType: DS.attr('string', { defaultValue: 'Current' }),
     userBankBranchCode: DS.attr(),
     userBankBranch: DS.attr(),
     userBankCity: DS.attr(),
@@ -41,8 +41,10 @@ export default DS.Model.extend({
     userCurrentState: DS.attr(),
     userCurrentCity: DS.attr(),
     userCurrentStreet: DS.attr(),
+
     userIsAdmin: DS.attr('boolean', { defaultValue: false}),
-    
+    userIsRecruited: DS.attr('boolean', { defaultValue: false}), // To track if User Is Recruited or Approved to use the system
+
     userFullName: computed('userFirstName', 'userLastName', function() {
         return `${this.get('userFirstName')} ${this.get('userLastName')}`;
     }),

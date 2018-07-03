@@ -21,6 +21,7 @@ export default Route.extend({
 
         this.controller.set('user', this.controller.get('model'));
         this.controller.set('user.userIsAdmin', true);
+        this.controller.set('user.userIsRecruited', true); // Admins are approved by default since only Admin can add New Admins
         // Set the state of hamburger menu
         let target = document.getElementsByClassName("navbar-burger")[0];
         if (target) {
@@ -43,11 +44,12 @@ export default Route.extend({
                     this.transitionTo("user");
                 })
                 .catch(error => {
-                    alert('Error while saving User', error);
+                    alert('Error on save: ', error.message);
+                    console.log(error);
                 })
             })
             .catch(error => {
-                alert(error.message);
+                alert('Error on creating a new user auth cred: ' + error.message);
             });
         },
 

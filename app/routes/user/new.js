@@ -42,11 +42,12 @@ export default Route.extend({
                         this.transitionTo("user");
                     })
                         .catch(error => {
-                            alert('Error while saving User', error);
+                            alert('Error on save: ', error.message);
+                            console.log(error);
                         })
                 })
                 .catch(error => {
-                    alert(error.message);
+                    alert('Error on creating a new user auth cred: ' + error.message);
                 });
         },
 
