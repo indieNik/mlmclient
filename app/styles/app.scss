@@ -197,5 +197,9 @@ $lighttext: #e8edf3;
 .detail-window {
     margin: 5vh 1vw !important; 
 }
+.accordion-header {
+    background-color: #22264b !important;
+    color: #fff !important;
+}
 // Import the rest of Bulma
 @import "bulma";

@@ -6,7 +6,9 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
   });
-
+  app.import('node_modules/bulma-extensions/bulma-accordion/dist/css/bulma-accordion.min.css');
+  // app.import('node_modules/bulma-extensions/bulma-accordion/dist/js/bulma-accordion.min.js');
+ 
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
