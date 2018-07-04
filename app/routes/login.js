@@ -28,14 +28,25 @@ export default Route.extend({
                     provider: 'password',
                     email: email,
                     password: password
-                }).then((data) => {    
-                    if (typeof(Storage) !== "undefined") {
-                        // Store
-                        localStorage.setItem("authenticatedUserUID", data.uid);
-                        this.transitionTo("user");
-                    } else {
-                        alert("Cannot continue since no support for browser storage!")
-                    }
+                }).then((data) => {
+                    this.store.query('user', {
+                        orderBy: 'userUID',
+                        equalTo: data.uid
+                    }).then( loggedInUserData => {
+                        if(loggedInUserData.firstObject.userIsRecruited) {
+                            if (typeof(Storage) !== "undefined") {
+                                // Store
+                                localStorage.setItem("authenticatedUserUID", data.uid);
+                                this.transitionTo("user");
+                            } else {
+                                alert("TODO: Cannot continue since no support for browser storage!");
+                            }
+                        } else {
+                            alert("User not Approved yet, hence not allowed to login!");
+                            this.get('session').close();
+                            this.transitionTo("login");
+                        }
+                    })
                 }).catch( error => {
                     alert(error.message);
                 });
