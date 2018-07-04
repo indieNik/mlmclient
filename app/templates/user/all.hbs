@@ -1,82 +1,34 @@
 <p class="panel-tabs profile">
-    <a href="#" {{action "toggleTab" "approved-users"}} class="nav-pill approved-users is-active">Approved Users</a>
-    <a href="#" {{action "toggleTab" "pending-user-approvals"}} class="nav-pill pending-user-approvals">Pending Approval</a>
-    <a href="#" {{action "toggleTab" "pending-bank-approvals"}} class="nav-pill pending-bank-approvals">Bank Approvals</a>
-    <a href="#" {{action "toggleTab" "pending-mobile-approvals"}} class="nav-pill pending-mobile-approvals">Mobile Approvals</a>
+    <a href="#" {{action "toggleTab" "approved-users"}} class="users nav-pill approved-users">Approved Users</a>
+    <a href="#" {{action "toggleTab" "pending-user-approvals"}} class="users nav-pill pending-user-approvals">Pending Approval</a>
+    <a href="#" {{action "toggleTab" "pending-bank-approvals"}} class="users nav-pill pending-bank-approvals">Bank Approvals</a>
+    <a href="#" {{action "toggleTab" "pending-mobile-approvals"}} class="users nav-pill pending-mobile-approvals">Mobile Approvals</a>
 </p>
 
 <br>
 
-{{#each model as |user|}} 
+{{#each model as |user|}}
     {{#if user.userIsRecruited}}
-    <div id="approved-users" class="info-tabs is-offset-3">
-        <section class="accordions">
-            <article id={{user.id}} class="accordion is-primary">
-                <div class="accordion-header toggle" {{action "toggleAccordion"}}>
-                    <p>{{user.userFullName}}
-                        <small>(Click to Expand)</small>
-                    </p>
-                </div>
-                <div class="accordion-body">
-                    <div class="accordion-content">
-                        {{user.userFullName}} - {{user.userEmail}} - {{user.userIsRecruited}}
-                    </div>
-                </div>
-            </article>
-        </section>
-    </div>
-    {{/if}} 
+        <div id="approved-users" class="info-tabs is-offset-3">
+            {{user-list user=user }}
+        </div>
+    {{/if}}
 
     {{#unless user.userIsRecruited}}
-    <div id="pending-user-approvals" class="info-tabs hide-div">
-        <section class="accordions">
-            <article id={{user.id}} class="accordion is-primary">
-                <div class="accordion-header toggle" {{action "toggleAccordion" user.id}}>
-                    <p>{{user.userFullName}}</p>
-                </div>
-                <div class="accordion-body">
-                    <div class="accordion-content">
-                        {{user.userFullName}} - {{user.userEmail}} - {{user.userIsRecruited}}
-                    </div>
-                </div>
-            </article>
-        </section>
-    </div>
+        <div id="pending-user-approvals" class="info-tabs is-offset-3">
+            {{user-list user=user }}
+        </div>
     {{/unless}} 
 
-    {{#if user.userIsRecruited}}
-    <div id="pending-bank-approvals" class="info-tabs hide-div">
-        {{!-- {{#each userList as |user|}} --}}
-        <section class="accordions">
-            <article id={{user.id}} class="accordion is-primary">
-                <div class="accordion-header toggle" {{action "toggleAccordion" user.id}}>
-                    <p>{{user.userFullName}}</p>
-                </div>
-                <div class="accordion-body">
-                    <div class="accordion-content">
-                        {{user.userFullName}} - {{user.userEmail}} - {{user.userIsRecruited}}
-                    </div>
-                </div>
-            </article>
-        </section>
-        {{!-- {{/each}} --}}
-    </div>
+    {{!-- {{#if user.userIsRecruited}}
+        <div id="pending-bank-approvals" class="info-tabs is-offset-3">
+            {{user-list user=user }}
+        </div>
     {{/if}} 
-
+    
     {{#if user.userIsRecruited}}
-    <div id="pending-mobile-approvals" class="info-tabs hide-div">
-        <section class="accordions">
-            <article id={{user.id}} class="accordion is-primary">
-                <div class="accordion-header toggle" {{action "toggleAccordion" user.id}}>
-                    <p>{{user.userFullName}}</p>
-                </div>
-                <div class="accordion-body">
-                    <div class="accordion-content">
-                        {{user.userFullName}} - {{user.userEmail}} - {{user.userIsRecruited}}
-                    </div>
-                </div>
-            </article>
-        </section>
-    </div>
-    {{/if}} 
+        <div id="pending-mobile-approvals" class="info-tabs is-offset-3">
+            {{user-list user=user }}
+        </div>
+    {{/if}}  --}}
 {{/each}}

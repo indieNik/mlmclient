@@ -1,0 +1,154 @@
+<section class="accordions">
+    <article id={{user.id}} class="accordion is-primary">
+        <div class="accordion-header toggle" {{action "toggleAccordion"}}>
+            {{user.userFullName}}
+            {{#if user.userIsRecruited}}
+                <span class="tag is-success is-rounded is-pulled-right">Approved</span>
+            {{else}}
+                <span class="tag is-danger is-rounded is-pulled-right">Pending</span>
+            {{/if}}
+        </div>
+        <div class="accordion-body">
+            <div class="accordion-content">
+                <div class="profile">
+                    <p class="panel-tabs profile">
+                        <a href="#" {{action "toggleTabInner" "general-info"}} class="nav-pill general-info is-active">General</a>
+                        <a href="#" {{action "toggleTabInner" "user-id-info"}} class="nav-pill user-id-info">Identity</a>
+                        <a href="#" {{action "toggleTabInner" "address-info"}} class="nav-pill address-info">Address</a>
+                        <a href="#" {{action "toggleTabInner" "relationship-info"}} class="nav-pill relationship-info">Relationship</a>
+                        <a href="#" {{action "toggleTabInner" "bank-info"}} class="nav-pill bank-info">Banking</a>
+                        <a href="#" {{action "toggleTabInner" "contact-info"}} class="nav-pill contact-info">Contact</a>
+                    </p>
+                    <div id="general-info" class="user-list info-tabs is-active is-offset-3">
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">ID</div>
+                            <div class="column is-half">{{user.userUID}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">First Name</div>
+                            <div class="column is-half">{{user.userFirstName}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Last Name</div>
+                            <div class="column is-half">{{user.userLastName}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Email</div>
+                            <div class="column is-half">{{user.userEmail}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Date of Birth</div>
+                            <div class="column is-half">{{user.userDob}}</div>
+                        </div>
+                    </div>
+                    <div id="user-id-info" class="user-list info-tabs hide-div">
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">License</div>
+                            <div class="column is-half">{{user.userLicenseID}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">PAN Card</div>
+                            <div class="column is-half">{{user.userPan}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Aadhaar ID</div>
+                            <div class="column is-half">{{user.userAdhaar}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Vorer ID</div>
+                            <div class="column is-half">{{user.userVoterId}}</div>
+                        </div>
+                    </div>
+                    <div id="bank-info" class="user-list info-tabs hide-div">
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Bank Name</div>
+                            <div class="column is-half">{{user.userBankName}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Account No</div>
+                            <div class="column is-half">{{user.userBankAccountNo}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">IFSC Code</div>
+                            <div class="column is-half">{{user.userBankIFSC}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Account Type</div>
+                            <div class="column is-half">{{user.userBankAccountType}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Branch Code</div>
+                            <div class="column is-half">{{user.userBankBranchCode}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Branch Name</div>
+                            <div class="column is-half">{{user.userBankBranch}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">City</div>
+                            <div class="column is-half">{{user.userBankCity}}</div>
+                        </div>
+                    </div>
+                    <div id="relationship-info" class="user-list info-tabs hide-div">
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Father's Name</div>
+                            <div class="column is-half">{{user.userFatherName}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Mother's Name</div>
+                            <div class="column is-half">{{user.userMotherName}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Married?</div>
+                            <div class="column is-half">{{if user.userMaritalStatus "Yes" "No"}}</div>
+                        </div>
+                        {{#if user.userMaritalStatus}}    
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Spouse Name</div>
+                                <div class="column is-half">{{user.userSpouseName}}</div>
+                            </div>
+                        {{/if}}
+                    </div>
+                    <div id="contact-info" class="user-list info-tabs hide-div">
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Mobile</div>
+                            <div class="column is-half">{{user.userMobile}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Alternate Number</div>
+                            <div class="column is-half">{{user.userAlternateMobile}}</div>
+                        </div>
+                    </div>
+                    <div id="address-info" class="user-list info-tabs hide-div">
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Country</div>
+                            <div class="column is-half">{{user.userCountry}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">State</div>
+                            <div class="column is-half">{{user.userState}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">City</div>
+                            <div class="column is-half">{{user.userCity}}</div>
+                        </div>
+                        <div class="columns">
+                            <div class="column has-text-weight-bold is-half">Street</div>
+                            <div class="column is-half">{{user.userStreet}}</div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {{#if user.userIsRecruited}}
+                    <div class="has-text-centered">
+                        <a class="button is-danger" {{action "disApproveUser" user.id}}>Revoke Access</a>
+                    </div>
+                {{else}}
+                    <div class="has-text-centered">
+                        <a class="button is-success" {{action "approveUser" user.id}}>Approve</a>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </article>
+</section>

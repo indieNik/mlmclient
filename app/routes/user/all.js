@@ -20,24 +20,12 @@ export default Route.extend({
                     tab.classList.add("hide-div");
                 }
             });
-            let activeTabs = document.getElementsByClassName("nav-pill is-active");
+            let activeTabs = document.getElementsByClassName("users nav-pill is-active");
             [].forEach.call(activeTabs, activeTab => {
                 activeTab.classList.remove("is-active");
             });
             let activeTab = document.getElementsByClassName(id)[0];
             activeTab.classList.add("is-active");
-        },
-
-        toggleAccordion() {
-            let activeTabs = document.getElementsByClassName("accordion is-active");
-            if(activeTabs[0] && activeTabs[0].isEqualNode(event.target.parentNode)) {
-                event.target.parentNode.classList.remove("is-active");
-            } else {
-                if(activeTabs[0]) {
-                    activeTabs[0].classList.remove("is-active");
-                }
-                event.target.parentNode.classList.add("is-active");
-            }
         }
     }
 });
