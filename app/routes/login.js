@@ -36,10 +36,8 @@ export default Route.extend({
                     } else {
                         alert("Cannot continue since no support for browser storage!")
                     }
-                    console.log('Got ID', localStorage.getItem("authenticatedUserUID"));
                 }).catch( error => {
-                    alert("Error Fetching Session");
-                    console.log(error);
+                    alert(error.message);
                 });
             }
         },
