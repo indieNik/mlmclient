@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('edit');
     this.route('new');
     this.route('new-admin');
+    this.route('all');
   });
 });
 
