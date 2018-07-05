@@ -24,6 +24,13 @@ export default DS.Model.extend({
     userBankBranchCode: DS.attr(),
     userBankBranch: DS.attr(),
     userBankCity: DS.attr(),
+    userNewBankName: DS.attr(),
+    userNewBankAccountNo: DS.attr(),
+    userNewBankIFSC: DS.attr(),
+    userNewBankAccountType: DS.attr('string', { defaultValue: 'Current' }),
+    userNewBankBranchCode: DS.attr(),
+    userNewBankBranch: DS.attr(),
+    userNewBankCity: DS.attr(),
     
     userFatherName: DS.attr(),
     userMotherName: DS.attr(),
@@ -44,6 +51,7 @@ export default DS.Model.extend({
 
     userIsAdmin: DS.attr('boolean', { defaultValue: false}),
     userIsRecruited: DS.attr('boolean', { defaultValue: false}), // To track if User Is Recruited or Approved to use the system
+    userBankApprovalPending: DS.attr('boolean', { defaultValue: false}), // To track if User has requested to update bank details
 
     userFullName: computed('userFirstName', 'userLastName', function() {
         return `${this.get('userFirstName')} ${this.get('userLastName')}`;

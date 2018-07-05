@@ -1,0 +1,79 @@
+<form {{action "updateUser" on="submit"}}>
+    <div class="hero is-primary" style="padding:5px; border-radius: 2px;">
+        <h1 class="subtitle">Bank Details</h1>
+    </div>
+
+    <br>
+
+    <div class="columns form">
+        <div class="profile column is-5 is-offset-1">
+            <div class="field">
+                <label class="label">Bank Name</label>
+                <div class="control">
+                    {{input value=user.userNewBankName class="input" type="text" placeholder=user.userBankName required=true}}
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Acc. Number</label>
+                <div class="control">
+                    {{input value=user.userNewBankAccountNo class="input" type="text" placeholder=user.userBankAccountNo required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">IFSC Code</label>
+                <div class="control">
+                    {{input class="input" type="text" placeholder=user.userBankIFSC value=user.userNewBankIFSC required=true}}
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Branch Code</label>
+                <div class="control">
+                    {{input value=user.userNewBankBranchCode class="input" type="text" placeholder=user.userBankBranchCode required=true}}
+                </div>
+            </div>
+
+
+        </div>
+        
+        <div class="column is-5">
+            <div class="field">
+                <label class="label">Account Type</label>
+                <div class="control">
+                    <div class="select is-primary">
+                    <select onchange={{action (mut user.userNewBankAccountType) value="target.value"}}>
+                        <option value="Current" selected={{eq user.userNewBankAccountType "Current"}}>Current</option>
+                        <option value="Savings" selected={{eq user.userNewBankAccountType "Savings"}}>Savings</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="field">
+                <label class="label">Branch Name</label>
+                <div class="control">
+                    {{input value=user.userNewBankBranch class="input" type="text" placeholder=user.userBankBranch required=true}}
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Branch City</label>
+                <div class="control">
+                    {{input value=user.userNewBankCity class="input" type="text" placeholder=user.userBankCity required=true}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-3 is-offset-4">
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-link">Request Update</button>
+            </div>
+            <div class="control">
+                <button {{action "cancelUser"}} type="cancel" class="button is-link is-danger">Cancel</button>
+            </div>
+        </div>
+        <br>
+    </div>
+</form>

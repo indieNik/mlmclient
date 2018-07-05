@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('new');
     this.route('new-admin');
     this.route('all');
+    this.route('edit-bank');
   });
 });
 

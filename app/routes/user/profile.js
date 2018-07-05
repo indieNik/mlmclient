@@ -32,6 +32,15 @@ export default Route.extend({
             });
             let activeTab = document.getElementsByClassName(id)[0];
             activeTab.classList.add("is-active");
+
+            // Show New Bank Info Notification Window
+            if(document.getElementById("new-bank-info")){
+                if(id == "bank-info") {
+                    document.getElementById("new-bank-info").classList.remove("hide-div");
+                } else {
+                    document.getElementById("new-bank-info").classList.add("hide-div");
+                }
+            }
         }
     }
 });

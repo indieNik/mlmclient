@@ -42,6 +42,11 @@
                     Edit Profile
                 {{/link-to}}
             </li>
+            <li {{action 'toggleSidebar'}} id="editUserBank">
+                {{#link-to 'user.edit-bank'}}
+                    Edit Bank Details
+                {{/link-to}}
+            </li>
             <li>
                 {{#link-to 'user.change-password' user}}
                     Change Password

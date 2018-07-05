@@ -77,6 +77,40 @@
             <div class="column is-half">{{user.userBankCity}}</div>
         </div>
     </div>
+    {{#if user.userBankApprovalPending}}
+        <div id="new-bank-info" class="notification is-warning hide-div">
+            <p class="has-text-weight-bold has-text-primary">Important! Your updated bank details as shown below are still awaiting approval!</p>
+            <br>
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">Bank Name</div>
+                <div class="column is-half">{{user.userNewBankName}}</div>
+            </div>
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">Account No</div>
+                <div class="column is-half">{{user.userNewBankAccountNo}}</div>
+            </div>
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">IFSC Code</div>
+                <div class="column is-half">{{user.userNewBankIFSC}}</div>
+            </div>
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">Account Type</div>
+                <div class="column is-half">{{user.userNewBankAccountType}}</div>
+            </div>
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">Branch Code</div>
+                <div class="column is-half">{{user.userNewBankBranchCode}}</div>
+            </div>
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">Branch Name</div>
+                <div class="column is-half">{{user.userNewBankBranch}}</div>
+            </div>
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">City</div>
+                <div class="column is-half">{{user.userNewBankCity}}</div>
+            </div>
+        </div>
+    {{/if}}
     <div id="relationship-info" class="info-tabs hide-div">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Father's Name</div>

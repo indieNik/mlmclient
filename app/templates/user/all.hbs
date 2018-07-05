@@ -9,9 +9,11 @@
 
 {{#each model as |user|}}
     {{#if user.userIsRecruited}}
-        <div id="approved-users" class="info-tabs is-offset-3">
-            {{user-list user=user }}
-        </div>
+        {{#unless user.userBankApprovalPending}}
+            <div id="approved-users" class="info-tabs is-offset-3">
+                {{user-list user=user }}
+            </div>
+        {{/unless}}
     {{/if}}
 
     {{#unless user.userIsRecruited}}
@@ -20,15 +22,15 @@
         </div>
     {{/unless}} 
 
-    {{!-- {{#if user.userIsRecruited}}
+    {{#if user.userBankApprovalPending}}
         <div id="pending-bank-approvals" class="info-tabs is-offset-3">
             {{user-list user=user }}
         </div>
     {{/if}} 
     
-    {{#if user.userIsRecruited}}
+    {{!-- {{#if user.userIsRecruited}}
         <div id="pending-mobile-approvals" class="info-tabs is-offset-3">
             {{user-list user=user }}
         </div>
-    {{/if}}  --}}
+    {{/if}} --}}
 {{/each}}

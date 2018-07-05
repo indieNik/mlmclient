@@ -50,6 +50,22 @@ export default Component.extend({
                     console.log("User saved. Approval statue: ", data.userIsRecruited);
                 });
             });
+        },
+
+        approveUserNewBankDetails(id) {
+            this.get('store').findRecord('user', id).then(user => {
+                user.set("userBankName", user.userNewBankName);
+                user.set("userBankAccountNo", user.userNewBankAccountNo);
+                user.set("userBankIFSC", user.userNewBankIFSC);
+                user.set("userNewBankAccountType", user.userNewBankAccountType);
+                user.set("userNewBankBranchCode", user.userNewBankBranchCode);
+                user.set("userNewBankBranch", user.userNewBankBranch);
+                user.set("userNewBankCity", user.userNewBankCity);
+                user.set("userBankApprovalPending", false);
+                user.save().then( data => {
+                    console.log("User saved. Approval statue: ", data.userIsRecruited);
+                });
+            });
         }
     }
 });

@@ -3,7 +3,11 @@
         <div class="accordion-header toggle" {{action "toggleAccordion"}}>
             {{user.userFullName}}
             {{#if user.userIsRecruited}}
-                <span class="tag is-success is-rounded is-pulled-right">Approved</span>
+                {{#if user.userBankApprovalPending}}
+                    <span class="tag is-danger is-rounded is-pulled-right">Bank Approval Pending</span>
+                {{else}}
+                    <span class="tag is-success is-rounded is-pulled-right">Approved</span>
+                {{/if}}
             {{else}}
                 <span class="tag is-danger is-rounded is-pulled-right">Pending</span>
             {{/if}}
@@ -16,7 +20,12 @@
                         <a href="#" {{action "toggleTabInner" "user-id-info"}} class="nav-pill user-id-info">Identity</a>
                         <a href="#" {{action "toggleTabInner" "address-info"}} class="nav-pill address-info">Address</a>
                         <a href="#" {{action "toggleTabInner" "relationship-info"}} class="nav-pill relationship-info">Relationship</a>
-                        <a href="#" {{action "toggleTabInner" "bank-info"}} class="nav-pill bank-info">Banking</a>
+                        <a href="#" {{action "toggleTabInner" "bank-info"}} class="nav-pill bank-info">
+                            Banking
+                            {{#if user.userBankApprovalPending}}
+                                <span class="tag is-rounded is-danger">New</span>
+                            {{/if}}
+                        </a>
                         <a href="#" {{action "toggleTabInner" "contact-info"}} class="nav-pill contact-info">Contact</a>
                     </p>
                     <div id="general-info" class="user-list info-tabs is-active is-offset-3">
@@ -62,31 +71,31 @@
                     <div id="bank-info" class="user-list info-tabs hide-div">
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">Bank Name</div>
-                            <div class="column is-half">{{user.userBankName}}</div>
+                            <div class="column is-half">{{user.userNewBankName}}</div>
                         </div>
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">Account No</div>
-                            <div class="column is-half">{{user.userBankAccountNo}}</div>
+                            <div class="column is-half">{{user.userNewBankAccountNo}}</div>
                         </div>
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">IFSC Code</div>
-                            <div class="column is-half">{{user.userBankIFSC}}</div>
+                            <div class="column is-half">{{user.userNewBankIFSC}}</div>
                         </div>
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">Account Type</div>
-                            <div class="column is-half">{{user.userBankAccountType}}</div>
+                            <div class="column is-half">{{user.userNewBankAccountType}}</div>
                         </div>
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">Branch Code</div>
-                            <div class="column is-half">{{user.userBankBranchCode}}</div>
+                            <div class="column is-half">{{user.userNewBankBranchCode}}</div>
                         </div>
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">Branch Name</div>
-                            <div class="column is-half">{{user.userBankBranch}}</div>
+                            <div class="column is-half">{{user.userNewBankBranch}}</div>
                         </div>
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">City</div>
-                            <div class="column is-half">{{user.userBankCity}}</div>
+                            <div class="column is-half">{{user.userNewBankCity}}</div>
                         </div>
                     </div>
                     <div id="relationship-info" class="user-list info-tabs hide-div">
@@ -140,9 +149,15 @@
                 </div>
                 <br>
                 {{#if user.userIsRecruited}}
-                    <div class="has-text-centered">
-                        <a class="button is-danger" {{action "disApproveUser" user.id}}>Revoke Access</a>
+                    {{#if user.userBankApprovalPending}}
+                        <div class="has-text-centered">
+                        <a class="button is-success" {{action "approveUserNewBankDetails" user.id}}>Approve</a>
                     </div>
+                    {{else}}
+                        <div class="has-text-centered">
+                            <a class="button is-danger" {{action "disApproveUser" user.id}}>Revoke Access</a>
+                        </div>
+                    {{/if}}
                 {{else}}
                     <div class="has-text-centered">
                         <a class="button is-success" {{action "approveUser" user.id}}>Approve</a>
