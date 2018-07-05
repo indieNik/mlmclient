@@ -41,6 +41,15 @@ export default Route.extend({
                     document.getElementById("new-bank-info").classList.add("hide-div");
                 }
             }
+
+            // Show New Mobile Info Notification Window
+            if(document.getElementById("new-contact-info")){
+                if(id == "contact-info") {
+                    document.getElementById("new-contact-info").classList.remove("hide-div");
+                } else {
+                    document.getElementById("new-contact-info").classList.add("hide-div");
+                }
+            }
         }
     }
 });

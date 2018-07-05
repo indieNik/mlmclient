@@ -39,6 +39,8 @@ export default DS.Model.extend({
     
     userMobile: DS.attr(),
     userAlternateMobile: DS.attr(),
+    userNewMobile: DS.attr(),
+    userNewAlternateMobile: DS.attr(),
     
     userCountry: DS.attr(),
     userState: DS.attr(),
@@ -52,6 +54,7 @@ export default DS.Model.extend({
     userIsAdmin: DS.attr('boolean', { defaultValue: false}),
     userIsRecruited: DS.attr('boolean', { defaultValue: false}), // To track if User Is Recruited or Approved to use the system
     userBankApprovalPending: DS.attr('boolean', { defaultValue: false}), // To track if User has requested to update bank details
+    userMobileApprovalPending: DS.attr('boolean', { defaultValue: false}), // To track if User has requested to update Mobile details
 
     userFullName: computed('userFirstName', 'userLastName', function() {
         return `${this.get('userFirstName')} ${this.get('userLastName')}`;

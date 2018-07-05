@@ -141,6 +141,20 @@
             <div class="column is-half">{{user.userAlternateMobile}}</div>
         </div>
     </div>
+    {{#if user.userMobileApprovalPending}}
+        <div id="new-contact-info" class="notification is-warning hide-div">
+            <p class="has-text-weight-bold has-text-primary">Important! Your updated Mobile details as shown below are still awaiting approval!</p>
+            <br>
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">Mobile</div>
+                <div class="column is-half">{{user.userNewMobile}}</div>
+            </div>
+            <div class="columns">
+                <div class="column has-text-weight-bold is-half">Alternate Number</div>
+                <div class="column is-half">{{user.userNewAlternateMobile}}</div>
+            </div>
+        </div>
+    {{/if}}
     <div id="address-info" class="info-tabs hide-div">
         <div class="columns">
             <div class="column has-text-weight-bold is-half">Country</div>

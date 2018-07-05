@@ -6,7 +6,11 @@
                 {{#if user.userBankApprovalPending}}
                     <span class="tag is-danger is-rounded is-pulled-right">Bank Approval Pending</span>
                 {{else}}
-                    <span class="tag is-success is-rounded is-pulled-right">Approved</span>
+                    {{#if user.userMobileApprovalPending}}
+                        <span class="tag is-danger is-rounded is-pulled-right">Contact Approval Pending</span>
+                    {{else}}
+                        <span class="tag is-success is-rounded is-pulled-right">Approved</span>
+                    {{/if}}
                 {{/if}}
             {{else}}
                 <span class="tag is-danger is-rounded is-pulled-right">Pending</span>
@@ -26,7 +30,12 @@
                                 <span class="tag is-rounded is-danger">New</span>
                             {{/if}}
                         </a>
-                        <a href="#" {{action "toggleTabInner" "contact-info"}} class="nav-pill contact-info">Contact</a>
+                        <a href="#" {{action "toggleTabInner" "contact-info"}} class="nav-pill contact-info">
+                            Contact
+                            {{#if user.userMobileApprovalPending}}
+                                <span class="tag is-rounded is-danger">New</span>
+                            {{/if}}
+                        </a>
                     </p>
                     <div id="general-info" class="user-list info-tabs is-active is-offset-3">
                         <div class="columns">
@@ -121,11 +130,11 @@
                     <div id="contact-info" class="user-list info-tabs hide-div">
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">Mobile</div>
-                            <div class="column is-half">{{user.userMobile}}</div>
+                            <div class="column is-half">{{user.userNewMobile}}</div>
                         </div>
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">Alternate Number</div>
-                            <div class="column is-half">{{user.userAlternateMobile}}</div>
+                            <div class="column is-half">{{user.userNewAlternateMobile}}</div>
                         </div>
                     </div>
                     <div id="address-info" class="user-list info-tabs hide-div">
@@ -151,12 +160,18 @@
                 {{#if user.userIsRecruited}}
                     {{#if user.userBankApprovalPending}}
                         <div class="has-text-centered">
-                        <a class="button is-success" {{action "approveUserNewBankDetails" user.id}}>Approve</a>
-                    </div>
-                    {{else}}
-                        <div class="has-text-centered">
-                            <a class="button is-danger" {{action "disApproveUser" user.id}}>Revoke Access</a>
+                            <a class="button is-success" {{action "approveUserNewBankDetails" user.id}}>Approve Bank Changes</a>
                         </div>
+                    {{else}}
+                        {{#if user.userMobileApprovalPending}}
+                            <div class="has-text-centered">
+                                <a class="button is-success" {{action "approveUserNewMobileDetails" user.id}}>Approve Contact Changes</a>
+                            </div>
+                        {{else}}
+                            <div class="has-text-centered">
+                                <a class="button is-danger" {{action "disApproveUser" user.id}}>Revoke Access</a>
+                            </div>
+                        {{/if}}
                     {{/if}}
                 {{else}}
                     <div class="has-text-centered">

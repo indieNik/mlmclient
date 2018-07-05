@@ -1,0 +1,37 @@
+<form {{action "updateUser" on="submit"}}>
+    <div class="hero is-primary" style="padding:5px; border-radius: 2px;">
+        <h1 class="subtitle">Contact Details</h1>
+    </div>
+    <br>
+    <div class="columns form">
+        <div class="profile column is-5 is-offset-1">
+            <div class="field">
+                <label class="label">Mobile</label>
+                <div class="control">
+                    {{input value=user.userNewMobile class="input" type="number" placeholder=user.userMobile}}
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-5">
+            <div class="field">
+                <label class="label">Alternate Contact</label>
+                <div class="control">
+                    {{input value=user.userNewAlternateMobile class="input" type="number" placeholder=user.userAlternateMobile}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="column is-3 is-offset-4">
+        <div class="field is-grouped">
+            <div class="control">
+                <button type="submit" class="button is-link">Request Update</button>
+            </div>
+            <div class="control">
+                <button {{action "cancelUser"}} type="cancel" class="button is-link is-danger">Cancel</button>
+            </div>
+        </div>
+        <br>
+    </div>
+</form>

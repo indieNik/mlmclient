@@ -66,6 +66,18 @@ export default Component.extend({
                     console.log("User saved. Approval statue: ", data.userIsRecruited);
                 });
             });
+        },
+
+        approveUserNewMobileDetails(id) {
+            this.get('store').findRecord('user', id).then(user => {
+                user.set("userMobile", user.userNewMobile);
+                user.set("userAlternateMobile", user.userNewAlternateMobile);
+
+                user.set("userMobileApprovalPending", false);
+                user.save().then( data => {
+                    console.log("User saved. Approval statue: ", data.userIsRecruited);
+                });
+            });
         }
     }
 });

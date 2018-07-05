@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('new-admin');
     this.route('all');
     this.route('edit-bank');
+    this.route('edit-mobile');
   });
 });
 
