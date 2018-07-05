@@ -151,6 +151,24 @@ $lighttext: #e8edf3;
     color: #fff;
     border: 1px solid #22264b;
 }
+
+@media screen and (max-width: 468px) {
+    .panel-tabs {
+        padding: 0.5rem;
+        a {
+            text-align: center;
+            font-size: small;
+            text-decoration: underline solid #fff;
+        }
+    }
+    .nav-pill.general-info {
+        margin-left: 2rem !important;
+    }
+    .accordion-content .nav-pill.general-info {
+        margin-left: 5rem !important;
+    }
+}
+
 .panel-tabs {
     background-color: #22264b;
     padding: 1rem 2rem;
