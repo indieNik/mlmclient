@@ -34,8 +34,12 @@ export default Route.extend({
             auth.createUserWithEmailAndPassword(user.userEmail, user.userPassword)
                 .then((newFirebaseUser) => {
                     // console.log('New Firebase User', newFirebaseUser);
-                    user.set('userUID', newFirebaseUser.uid);
-                    // console.log("Saving User: ", user);
+                    user.set('userUID',newFirebaseUser.uid);
+                
+                    // Set the loggedInUser as the Recruiter for the new user
+                    user.set('recruiter', this.controllerFor("user").get('authenticatedUser'));
+                    user.set('userRID', this.controllerFor("user").get('authenticatedUser').get('userUID'));
+                    // console.log("Saving New User: ", user);
                     user.save().then((savedUser) => {
                         // console.log('success on save', success);
                         alert("New User " + savedUser.userFullName + " Created!")

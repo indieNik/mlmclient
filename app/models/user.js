@@ -4,6 +4,7 @@ import { computed } from '@ember/object';
 export default DS.Model.extend({
 
     userUID: DS.attr(),
+    userRID: DS.attr(), // Recruiter ID
 
     userFirstName: DS.attr(),
     userLastName: DS.attr(),
@@ -24,13 +25,13 @@ export default DS.Model.extend({
     userBankBranchCode: DS.attr(),
     userBankBranch: DS.attr(),
     userBankCity: DS.attr(),
-    userNewBankName: DS.attr(),
-    userNewBankAccountNo: DS.attr(),
-    userNewBankIFSC: DS.attr(),
+    userNewBankName: DS.attr('string', { defaultValue: '' }),
+    userNewBankAccountNo: DS.attr('string', { defaultValue: '' }),
+    userNewBankIFSC: DS.attr('string', { defaultValue: '' }),
     userNewBankAccountType: DS.attr('string', { defaultValue: 'Current' }),
-    userNewBankBranchCode: DS.attr(),
-    userNewBankBranch: DS.attr(),
-    userNewBankCity: DS.attr(),
+    userNewBankBranchCode: DS.attr('string', { defaultValue: '' }),
+    userNewBankBranch: DS.attr('string', { defaultValue: '' }),
+    userNewBankCity: DS.attr('string', { defaultValue: '' }),
     
     userFatherName: DS.attr(),
     userMotherName: DS.attr(),
@@ -39,8 +40,8 @@ export default DS.Model.extend({
     
     userMobile: DS.attr(),
     userAlternateMobile: DS.attr(),
-    userNewMobile: DS.attr(),
-    userNewAlternateMobile: DS.attr(),
+    userNewMobile: DS.attr('string', { defaultValue: '' }),
+    userNewAlternateMobile: DS.attr('string', { defaultValue: '' }),
     
     userCountry: DS.attr(),
     userState: DS.attr(),
@@ -59,4 +60,7 @@ export default DS.Model.extend({
     userFullName: computed('userFirstName', 'userLastName', function() {
         return `${this.get('userFirstName')} ${this.get('userLastName')}`;
     }),
+
+    // Relationships
+    recruiter: DS.belongsTo('user', {inverse: 'recruiter'}),
 });

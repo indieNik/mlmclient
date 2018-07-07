@@ -37,7 +37,11 @@ export default Route.extend({
             .then((newFirebaseUser) => {
                 // console.log('New Firebase User', newFirebaseUser);
                 user.set('userUID',newFirebaseUser.uid);
-                // console.log("Saving User: ", user);
+                
+                // Set the loggedInUser as the Recruiter for the new user
+                user.set('recruiter', this.controllerFor("user").get('authenticatedUser'));
+                user.set('userRID', this.controllerFor("user").get('authenticatedUser').get('userUID'));
+                // console.log("Saving New User: ", user);
                 user.save().then((savedUser) => {
                     // console.log('success on save', success);
                     alert("New User " + savedUser.userFullName + " Created!")
@@ -45,11 +49,12 @@ export default Route.extend({
                 })
                 .catch(error => {
                     alert('Error on save: ', error.message);
-                    console.log(error);
+                    // console.log(error);
                 })
             })
             .catch(error => {
                 alert('Error on creating a new user auth cred: ' + error.message);
+                // console.log(error);
             });
         },
 

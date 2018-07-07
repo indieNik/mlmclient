@@ -156,27 +156,30 @@
                         </div>
                     </div>
                 </div>
+                
+                {{#if user.userIsAdmin}}
                 <br>
-                {{#if user.userIsRecruited}}
-                    {{#if user.userBankApprovalPending}}
-                        <div class="has-text-centered">
-                            <a class="button is-success" {{action "approveUserNewBankDetails" user.id}}>Approve Bank Changes</a>
-                        </div>
-                    {{else}}
-                        {{#if user.userMobileApprovalPending}}
+                    {{#if user.userIsRecruited}}
+                        {{#if user.userBankApprovalPending}}
                             <div class="has-text-centered">
-                                <a class="button is-success" {{action "approveUserNewMobileDetails" user.id}}>Approve Contact Changes</a>
+                                <a class="button is-success" {{action "approveUserNewBankDetails" user.id}}>Approve Bank Changes</a>
                             </div>
                         {{else}}
-                            <div class="has-text-centered">
-                                <a class="button is-danger" {{action "disApproveUser" user.id}}>Revoke Access</a>
-                            </div>
+                            {{#if user.userMobileApprovalPending}}
+                                <div class="has-text-centered">
+                                    <a class="button is-success" {{action "approveUserNewMobileDetails" user.id}}>Approve Contact Changes</a>
+                                </div>
+                            {{else}}
+                                <div class="has-text-centered">
+                                    <a class="button is-danger" {{action "disApproveUser" user.id}}>Revoke Access</a>
+                                </div>
+                            {{/if}}
                         {{/if}}
+                    {{else}}
+                        <div class="has-text-centered">
+                            <a class="button is-success" {{action "approveUser" user.id}}>Approve</a>
+                        </div>
                     {{/if}}
-                {{else}}
-                    <div class="has-text-centered">
-                        <a class="button is-success" {{action "approveUser" user.id}}>Approve</a>
-                    </div>
                 {{/if}}
             </div>
         </div>
