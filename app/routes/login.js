@@ -11,18 +11,19 @@ export default Route.extend({
     },
 
     setupController() {
+        this._super(...arguments);
         this.controllerFor("application").set("indexRoute", false);
         if(this.get('session').get("currentUser"))
-            this.transitionTo("user");
+        this.transitionTo("user");
     },
-
+    
     actions: {
 
-        signIn: function(provider) {
-            alert(provider + " sign in disabled for now. Login using normal sign in form!")
+        removeReadOnly() {
+            event.target.removeAttribute('readonly');
         },
 
-        signInWithPassword: function(provider, email, password) {
+        signInWithPassword(provider, email, password) {
             if(provider == "password") {
                 this.get('session').open('firebase', {
                     provider: 'password',
@@ -53,7 +54,7 @@ export default Route.extend({
             }
         },
         
-        signOut: function() {
+        signOut() {
             this.get('session').close();
             this.transitionTo("login");
         }
