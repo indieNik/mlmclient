@@ -152,6 +152,13 @@ $lighttext: #e8edf3;
     border: 1px solid #22264b;
 }
 
+@media screen and (min-width: 768px) {
+    // Fix the Profile Image size on large screens
+    .profile-image {
+        max-width: 200px;
+    }
+}
+
 @media screen and (max-width: 468px) {
     .panel-tabs {
         padding: 0.5rem;
