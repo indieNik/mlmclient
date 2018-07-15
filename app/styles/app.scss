@@ -6,13 +6,13 @@ $navbar-item-color: #fff;
 
 // Update Bulma's global variables
 $primary: $darkpurple;
-$secondary: #b56969;
+$info: #2078c8;
 $highlight: #e6cf8b;
 $lighttext: #e8edf3;
 
 @media screen and (min-width: 768px) {
     .navbar, .footer-is-fixed-bottom {
-        box-shadow: 0px 0px 3px 3px dodgerblue;
+        box-shadow: 0px 0px 3px 3px $info;
     }
     .sidebar-col #user-sidebar {
         box-shadow: 0px 0px 20px 2px #9E9E9E;
@@ -21,6 +21,10 @@ $lighttext: #e8edf3;
 
 .hero.is-fullheight{
     min-height: calc(100vh - 4rem);
+}
+
+.hero.is-info .subtitle {
+    color: #fff !important;
 }
 
 .footer-is-fixed-bottom {
@@ -127,7 +131,7 @@ $lighttext: #e8edf3;
             color: #fff;
         }
         a:hover, a.is-active{
-            background-color: dodgerblue;
+            background-color: $info;
         }
     }
     @media screen and (max-width: 768px) {
@@ -192,12 +196,12 @@ $lighttext: #e8edf3;
         border-radius: 5px;
     }
     a:focus, .is-active {
-        background-color: dodgerblue;
-        border-bottom-color: dodgerblue !important;
+        background-color: $info;
+        border-bottom-color: $info !important;
     }
     a:hover {
-        background-color: dodgerblue;
-        border-bottom-color: dodgerblue !important;
+        background-color: $info;
+        border-bottom-color: $info !important;
     }
 }
 .hide-div {
@@ -216,7 +220,7 @@ $lighttext: #e8edf3;
     .columns {
         box-sizing: border-box;
         margin: 0px !important;
-        border-bottom: 1px solid dodgerblue;
+        border-bottom: 1px solid $info;
     }
 }
 .detail-window {
