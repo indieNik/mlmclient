@@ -156,8 +156,7 @@
                         </div>
                     </div>
                 </div>
-                
-                {{#if user.userIsAdmin}}
+                {{#if loggedInUser.userIsAdmin}}
                 <br>
                     {{#if user.userIsRecruited}}
                         {{#if user.userBankApprovalPending}}

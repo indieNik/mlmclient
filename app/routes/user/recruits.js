@@ -11,5 +11,6 @@ export default Route.extend({
     setupController() {
         this._super(...arguments);
         this.controllerFor("application").set("indexRoute", false);
+        this.controller.set('loggedInUser', this.controllerFor("user").get('authenticatedUser'));
     }
 });

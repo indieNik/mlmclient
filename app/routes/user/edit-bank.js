@@ -42,7 +42,7 @@ export default Route.extend({
         cancelUser() {
             // rollbackAttributes() removes the record from the store
             // if the model 'isNew'
-            this.controller.get('model').rollbackAttributes();
+            // this.controller.get('model').rollbackAttributes();
             this.transitionTo("user");
         }  
     },
