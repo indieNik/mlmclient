@@ -77,36 +77,69 @@
                             <div class="column is-half">{{user.userVoterId}}</div>
                         </div>
                     </div>
-                    <div id="bank-info" class="user-list info-tabs hide-div">
-                        <div class="columns">
-                            <div class="column has-text-weight-bold is-half">Bank Name</div>
-                            <div class="column is-half">{{user.userNewBankName}}</div>
+                    {{#if user.userBankApprovalPending}}
+                        <div id="bank-info" class="user-list info-tabs hide-div">
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Bank Name</div>
+                                <div class="column is-half">{{user.userNewBankName}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Account No</div>
+                                <div class="column is-half">{{user.userNewBankAccountNo}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">IFSC Code</div>
+                                <div class="column is-half">{{user.userNewBankIFSC}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Account Type</div>
+                                <div class="column is-half">{{user.userNewBankAccountType}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Branch Code</div>
+                                <div class="column is-half">{{user.userNewBankBranchCode}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Branch Name</div>
+                                <div class="column is-half">{{user.userNewBankBranch}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">City</div>
+                                <div class="column is-half">{{user.userNewBankCity}}</div>
+                            </div>
                         </div>
-                        <div class="columns">
-                            <div class="column has-text-weight-bold is-half">Account No</div>
-                            <div class="column is-half">{{user.userNewBankAccountNo}}</div>
+                    {{else}}
+                        <div id="bank-info" class="user-list info-tabs hide-div">
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Bank Name</div>
+                                <div class="column is-half">{{user.userBankName}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Account No</div>
+                                <div class="column is-half">{{user.userBankAccountNo}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">IFSC Code</div>
+                                <div class="column is-half">{{user.userBankIFSC}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Account Type</div>
+                                <div class="column is-half">{{user.userBankAccountType}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Branch Code</div>
+                                <div class="column is-half">{{user.userBankBranchCode}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Branch Name</div>
+                                <div class="column is-half">{{user.userBankBranch}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">City</div>
+                                <div class="column is-half">{{user.userBankCity}}</div>
+                            </div>
                         </div>
-                        <div class="columns">
-                            <div class="column has-text-weight-bold is-half">IFSC Code</div>
-                            <div class="column is-half">{{user.userNewBankIFSC}}</div>
-                        </div>
-                        <div class="columns">
-                            <div class="column has-text-weight-bold is-half">Account Type</div>
-                            <div class="column is-half">{{user.userNewBankAccountType}}</div>
-                        </div>
-                        <div class="columns">
-                            <div class="column has-text-weight-bold is-half">Branch Code</div>
-                            <div class="column is-half">{{user.userNewBankBranchCode}}</div>
-                        </div>
-                        <div class="columns">
-                            <div class="column has-text-weight-bold is-half">Branch Name</div>
-                            <div class="column is-half">{{user.userNewBankBranch}}</div>
-                        </div>
-                        <div class="columns">
-                            <div class="column has-text-weight-bold is-half">City</div>
-                            <div class="column is-half">{{user.userNewBankCity}}</div>
-                        </div>
-                    </div>
+                    {{/if}}
                     <div id="relationship-info" class="user-list info-tabs hide-div">
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">Father's Name</div>
@@ -127,16 +160,29 @@
                             </div>
                         {{/if}}
                     </div>
-                    <div id="contact-info" class="user-list info-tabs hide-div">
-                        <div class="columns">
-                            <div class="column has-text-weight-bold is-half">Mobile</div>
-                            <div class="column is-half">{{user.userNewMobile}}</div>
+                    {{#if user.userMobileApprovalPending}}
+                        <div id="contact-info" class="user-list info-tabs hide-div">
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Mobile</div>
+                                <div class="column is-half">{{user.userNewMobile}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Alternate Number</div>
+                                <div class="column is-half">{{user.userNewAlternateMobile}}</div>
+                            </div>
                         </div>
-                        <div class="columns">
-                            <div class="column has-text-weight-bold is-half">Alternate Number</div>
-                            <div class="column is-half">{{user.userNewAlternateMobile}}</div>
+                    {{else}}
+                        <div id="contact-info" class="user-list info-tabs hide-div">
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Mobile</div>
+                                <div class="column is-half">{{user.userMobile}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Alternate Number</div>
+                                <div class="column is-half">{{user.userAlternateMobile}}</div>
+                            </div>
                         </div>
-                    </div>
+                    {{/if}}
                     <div id="address-info" class="user-list info-tabs hide-div">
                         <div class="columns">
                             <div class="column has-text-weight-bold is-half">Country</div>
