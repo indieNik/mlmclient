@@ -17,6 +17,7 @@ Router.map(function() {
     this.route('edit-bank');
     this.route('edit-mobile');
     this.route('recruits');
+    this.route('recruits-pending');
   });
 });
 

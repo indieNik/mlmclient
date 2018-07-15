@@ -14,15 +14,16 @@ export default Route.extend({
         this.controller.set('loggedInUser', this.controllerFor("user").get('authenticatedUser'));
 
         let users = this.controller.get('model');
-        let approvedRecruits = [];
+        let pendingRecruits = [];
 
         users.forEach (u => {
-            if (u.userIsRecruited) {
-                approvedRecruits.push(u);
+            if (!u.userIsRecruited) {
+                pendingRecruits.push(u);
             }
         });
 
-        this.controller.set('approvedRecruits', approvedRecruits);
+        this.controller.set('pendingRecruits', pendingRecruits);
+
         // Set the state of hamburger menu and the Sidebar menu
         let menu = document.getElementsByClassName("navbar-burger")[0];
         let target = document.getElementsByClassName("column is-active")[0];
