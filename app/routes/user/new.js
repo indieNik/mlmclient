@@ -20,10 +20,12 @@ export default Route.extend({
         this.controllerFor("application").set("indexRoute", false);
 
         this.controller.set('user', this.controller.get('model'));
-        // Set the state of hamburger menu
-        let target = document.getElementsByClassName("navbar-burger")[0];
-        if (target) {
-            target.classList.add('is-active');
+        // Set the state of hamburger menu and the Sidebar menu
+        let menu = document.getElementsByClassName("navbar-burger")[0];
+        let target = document.getElementsByClassName("column is-active")[0];
+        if (target && menu) {
+            target.classList.remove('is-active');
+            menu.classList.remove('is-active');
         }
     },
 
