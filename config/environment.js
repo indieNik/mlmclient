@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'mlm-client',
     environment,
     rootURL: '/',
-    locationType: 'hash',
+    locationType: 'auto',
     firebase: {
       apiKey: "AIzaSyAw7trRfA1eW392SrtQP4sWOJh9CnfxCA4",
       authDomain: "mlm-client.firebaseapp.com",
