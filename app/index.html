@@ -24,7 +24,7 @@
         </div>
     </nav>
     {{content-for "body"}}
-    <section class="hero is-info is-fullheight">
+    <section id="temp" class="hero is-info is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-6 is-offset-3">
@@ -42,6 +42,11 @@
         </div>
     </section>
     <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            console.log("Clearing Placeholder");
+            document.getElementById("temp").remove();
+        });
+
         var loadDeferredStyles = function() {
           var addStylesNode = document.getElementById("deferred-styles");
           var replacement = document.createElement("div");
