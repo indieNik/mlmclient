@@ -1,0 +1,19 @@
+<a class="button is-small is-success" {{action "displayRecruitsTree" user bubbles=false}}>+ {{user.userFullName}}'s Recruits</a>
+{{#if showRecruits}}
+    {{#if user.recruits.length}}
+        <div id={{user.userUID}} style="margin-left:2rem;">
+            <ul class="content">
+                {{#each user.recruits as |recruit|}}
+                    <li style="list-style: none;">
+                        {{user-list-general-info user=recruit showRecruits=true}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    {{else}}
+        <div style="margin-left:2rem;" class="has-text-danger">
+            No Recruits yet
+        </div>
+    {{/if}}
+{{/if}}
+

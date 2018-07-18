@@ -62,5 +62,6 @@ export default DS.Model.extend({
     }),
 
     // Relationships
-    recruiter: DS.belongsTo('user', {inverse: 'recruiter'}),
+    recruits: DS.hasMany('user', {inverse: 'recruiter'}),
+    recruiter: DS.belongsTo('user', {inverse: 'recruits'}),
 });

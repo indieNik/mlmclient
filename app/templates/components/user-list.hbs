@@ -226,6 +226,10 @@
                         </div>
                     {{/if}}
                 {{/if}}
+                {{#if showRecruits}}
+                    <br>
+                    {{recursive-recruit-tree user=user loggedInUser=loggedInUser}}
+                {{/if}}
             </div>
         </div>
     </article>

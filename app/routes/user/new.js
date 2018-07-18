@@ -38,12 +38,19 @@ export default Route.extend({
                     // console.log('New Firebase User', newFirebaseUser);
                     user.set('userUID',newFirebaseUser.uid);
                 
+                    let loggedInUser = this.controllerFor("user").get('authenticatedUser');
+
                     // Set the loggedInUser as the Recruiter for the new user
-                    user.set('recruiter', this.controllerFor("user").get('authenticatedUser'));
-                    user.set('userRID', this.controllerFor("user").get('authenticatedUser').get('userUID'));
+                    // user.set('recruiter', loggedInUser);
+                    user.set('userRID', loggedInUser.get('userUID'));
+
+                    // Push the new user as a recruit into loggedInUser's recruits array
+                    loggedInUser.get('recruits').pushObject(user);
+
                     // console.log("Saving New User: ", user);
                     user.save().then((savedUser) => {
                         // console.log('success on save', success);
+                        loggedInUser.save();
                         alert("New User " + savedUser.userFullName + " Created!")
                         this.transitionTo("user");
                     })

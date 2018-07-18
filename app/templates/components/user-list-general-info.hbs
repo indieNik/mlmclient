@@ -1,0 +1,54 @@
+<section class="accordions">
+    <article class="user-list-general-info accordion is-primary">
+        <div class="accordion-header toggle" {{action "toggleAccordion" user.userUID}}>
+            {{user.userFullName}}
+            {{#if user.userIsRecruited}}
+                {{#if user.userBankApprovalPending}}
+                    <span class="tag is-danger is-rounded is-pulled-right">Bank Approval Pending</span>
+                {{else}}
+                    {{#if user.userMobileApprovalPending}}
+                        <span class="tag is-danger is-rounded is-pulled-right">Contact Approval Pending</span>
+                    {{else}}
+                        <span class="tag is-success is-rounded is-pulled-right">Approved</span>
+                    {{/if}}
+                {{/if}}
+            {{else}}
+                <span class="tag is-danger is-rounded is-pulled-right">Pending</span>
+            {{/if}}
+        </div>
+        {{#if (eq toggleMe user.userUID)}}
+            <div id={{user.userUID}} class="accordion-body">
+                <div class="accordion-content">
+                    <div class="profile">
+                        <div id="general-info" class="info-tabs is-offset-3">
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">ID</div>
+                                <div class="column is-half">{{user.userUID}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">First Name</div>
+                                <div class="column is-half">{{user.userFirstName}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Last Name</div>
+                                <div class="column is-half">{{user.userLastName}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Email</div>
+                                <div class="column is-half">{{user.userEmail}}</div>
+                            </div>
+                            <div class="columns">
+                                <div class="column has-text-weight-bold is-half">Date of Birth</div>
+                                <div class="column is-half">{{user.userDob}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if showRecruits}}
+                        <br>
+                        {{recursive-recruit-tree user=user}}
+                    {{/if}}
+                </div>
+            </div>
+        {{/if}}
+    </article>
+</section>
