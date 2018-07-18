@@ -18,8 +18,29 @@
     {{content-for "head-footer"}}
   </head>
   <body class="has-navbar-fixed-top">
-      
+    <nav class="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+                <h1>MLM Client</h1>
+        </div>
+    </nav>
     {{content-for "body"}}
+    <section class="hero is-info is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-6 is-offset-3">
+                    <h1 class="title">
+                        Coming Soon
+                    </h1>
+                    <h2 class="subtitle">
+                        This is a business website which is still a work in progress. If you're a member already, get started by logging in!
+                    </h2>
+                    <button class="button is-primary">
+                        Login &rarr;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
     <script>
         var loadDeferredStyles = function() {
           var addStylesNode = document.getElementById("deferred-styles");
@@ -35,7 +56,9 @@
     </script>
     <script defer src="{{rootURL}}assets/vendor.js"></script>
     <script defer src="{{rootURL}}assets/mlm-client.js"></script>
-    
     {{content-for "body-footer"}}
+    <footer class="footer-is-fixed-bottom">
+        &copy; MLM Client - 2018
+    </footer>
   </body>
 </html>

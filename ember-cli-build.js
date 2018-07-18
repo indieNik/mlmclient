@@ -4,6 +4,11 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    'ember-service-worker': {
+      enabled: true,
+      versionStrategy: 'every-build',
+      registrationStrategy: 'async'
+    }
     // Add options here
   });
   app.import('node_modules/bulma-extensions/bulma-accordion/dist/css/bulma-accordion.min.css');
